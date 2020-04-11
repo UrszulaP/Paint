@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+  }
+
+html, body {
+    margin: 0;
+}
+
+body {
+    background-color: hsl(229, 27%, 69%);
+    font-family: 'Indie Flower', cursive;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+}
+
+.paper {
+    display: flex;
+    justify-content: center;
+}
+
+#paper {
+    background-image: url("paper.jpg");
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+label {
+    display: inline;
+}
+
+input {
+    display: inline;
+}

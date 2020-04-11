@@ -1,0 +1,45 @@
+<!-- CLOSE CHROME DEV TOOLS BEFORE TESTING - it speeds up registering events -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Canvas</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="range_style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+  <style id="hue_css"></style>
+  <style id="saturation_css"></style>
+  <style id="lightness_css"></style>
+  
+</head>
+
+<body>
+
+  <div class="title">
+    <h1>Magic JS Paint</h1>
+  </div>
+
+  <div class="paper">
+    <canvas id="paper" width="500" height="500"></canvas>
+  </div>
+
+  <div class="menu">
+    <form>
+      <label for="hue">Hue</label>
+      <input type="range" id="hue_range" name="hue" min="0" max="360">
+
+      <label for="hue">Saturation</label>
+      <input type="range" id="saturation_range" name="saturation" min="0" max="100">
+
+      <label for="hue">Lightness</label>
+      <input type="range" id="lightness_range" name="lightness" min="0" max="100">
+    </form>
+  </div>
+  
+
+  <script src="mixed_drawer.js"></script>
+  <script src="range_style.js"></script>
+
+</body>
+</html>
