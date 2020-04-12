@@ -1,3 +1,5 @@
+// DRAWING WHEN MOUSE DOWN, CHANGING THE BRUSH COLOR AND SIZE, CHANGING SIZE OF THE BRUSHSIZEBOX
+
 const canvas = document.querySelector('#paper');
 const ctx = canvas.getContext('2d');
 
@@ -13,11 +15,11 @@ ctx.lineWidth;
 // let saturationRange = document.getElementById("saturation_range");
 // let lightnessRange = document.getElementById("lightness_range");
 
+changeBrushColor(hueRange.value, saturationRange.value, lightnessRange.value);
+
 hueRange.addEventListener("change", function() {changeBrushColor(hueRange.value, saturationRange.value, lightnessRange.value)});
 saturationRange.addEventListener("change", function() {changeBrushColor(hueRange.value, saturationRange.value, lightnessRange.value)});
 lightnessRange.addEventListener("change", function() {changeBrushColor(hueRange.value, saturationRange.value, lightnessRange.value)});
-
-changeBrushColor(hueRange.value, saturationRange.value, lightnessRange.value);
 
 function changeBrushColor(hue, saturation, lightness) {
     ctx.strokeStyle = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
@@ -26,13 +28,24 @@ function changeBrushColor(hue, saturation, lightness) {
 
 // BRUSH SIZE
 
-let brushSizeRange = document.getElementById("brush_size");
-brushSizeRange.addEventListener("change", function() {changeBrushSize(brushSizeRange.value)});
+// already declared in range_style.js:
+//let brushSizeBox = document.getElementById("brush_size_box");
+let brushSizeRange = document.getElementById("brush_size_range");
 
 changeBrushSize(brushSizeRange.value);
+changeBrushSizeBoxSize(brushSizeRange.value);
+
+brushSizeRange.addEventListener("change", function() {changeBrushSize(brushSizeRange.value);
+                                                      changeBrushSizeBoxSize(brushSizeRange.value);
+                                                      });
 
 function changeBrushSize(size) {
     ctx.lineWidth = size;
+}
+
+function changeBrushSizeBoxSize(size) {
+    brushSizeBox.style.width = `${size}px`;
+    brushSizeBox.style.height = `${size}px`;
 }
 
 

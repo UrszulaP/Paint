@@ -1,3 +1,5 @@
+// CHANGING COLORS OF (COLOR RANGE INPUTS, BRUSHSIZE RANGE INPUT, COLORBOX AND BRUSHSIZEBOX) BY THE VALUES OF COLOR RANGE INPUTS
+
 // hue_css          automatically catches   <style id="hue_css"></style>
 // saturation_css   automatically catches   <style id="saturation_css"></style>
 // lightness_css    automatically catches   <style id="lightness_css"></style>
@@ -6,30 +8,40 @@ let hueRange = document.getElementById("hue_range");
 let saturationRange = document.getElementById("saturation_range");
 let lightnessRange = document.getElementById("lightness_range");
 let colorBox = document.getElementById("color_box");
+let brushSizeBox = document.getElementById("brush_size_box");
+
 
 hueRange.addEventListener("change", function() {
     changeSaturationRangeColor(hueRange.value, lightnessRange.value);
     changeLightnessRangeColor(hueRange.value, saturationRange.value);
+    changeBrushSizeRangeColor(hueRange.value, saturationRange.value, lightnessRange.value);
     changeColorBoxColor(hueRange.value, saturationRange.value, lightnessRange.value);
+    changeBrushSizeBoxColor(hueRange.value, saturationRange.value, lightnessRange.value);
 });
 
 saturationRange.addEventListener("change", function() {
     changeHueRangeColor(saturationRange.value, lightnessRange.value);
     changeLightnessRangeColor(hueRange.value, saturationRange.value);
+    changeBrushSizeRangeColor(hueRange.value, saturationRange.value, lightnessRange.value);
     changeColorBoxColor(hueRange.value, saturationRange.value, lightnessRange.value);
+    changeBrushSizeBoxColor(hueRange.value, saturationRange.value, lightnessRange.value);
 });
 
 lightnessRange.addEventListener("change", function() {
     changeHueRangeColor(saturationRange.value, lightnessRange.value);
     changeSaturationRangeColor(hueRange.value, lightnessRange.value);
+    changeBrushSizeRangeColor(hueRange.value, saturationRange.value, lightnessRange.value);
     changeColorBoxColor(hueRange.value, saturationRange.value, lightnessRange.value);
+    changeBrushSizeBoxColor(hueRange.value, saturationRange.value, lightnessRange.value);
 });
 
 
 changeHueRangeColor(saturationRange.value, lightnessRange.value);
 changeSaturationRangeColor(hueRange.value, lightnessRange.value);
 changeLightnessRangeColor(hueRange.value, saturationRange.value);
+changeBrushSizeRangeColor(hueRange.value, saturationRange.value, lightnessRange.value);
 changeColorBoxColor(hueRange.value, saturationRange.value, lightnessRange.value);
+changeBrushSizeBoxColor(hueRange.value, saturationRange.value, lightnessRange.value);
 
 
 function changeHueRangeColor(saturationValue, lightnessValue) {
@@ -71,6 +83,18 @@ function changeLightnessRangeColor(hueValue, saturationValue) {
 }
 
 
+function changeBrushSizeRangeColor(hueValue, saturationValue, lightnessValue) {
+    brush_size_css.innerHTML = `
+    #brush_size_range::-webkit-slider-runnable-track {
+        background: hsl(${hueValue}, ${saturationValue}%, ${lightnessValue}%);
+    }`;}
+
+
 function changeColorBoxColor(hueValue, saturationValue, lightnessValue) {
     colorBox.style.backgroundColor = `hsl(${hueValue}, ${saturationValue}%, ${lightnessValue}%)`;
+}
+
+
+function changeBrushSizeBoxColor(hueValue, saturationValue, lightnessValue) {
+    brushSizeBox.style.backgroundColor = `hsl(${hueValue}, ${saturationValue}%, ${lightnessValue}%)`;
 }

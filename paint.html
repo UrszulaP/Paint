@@ -28,6 +28,7 @@
     <style id="hue_css"></style>
     <style id="saturation_css"></style>
     <style id="lightness_css"></style>
+    <style id="brush_size_css"></style>
 </head>
 
 <body>
@@ -58,7 +59,7 @@
                             </div>
                         </div>
                         
-                        <form>
+                        <form class="w-100">
                             <div class="row">
                                 <div class="col-2">
                                     <label for="hue_range">Hue</label>
@@ -89,10 +90,17 @@
                     </div>
                     
                     <div class="col-3">
-                        <form>
-                            <label for="hue_range">Brush size</label>
-                            <input type="range" id="brush_size" min="1" max="50" value="10">
-                        </form>
+                        <div class="row">
+                            <form class="w-100">
+                                <label for="hue_range">Brush size</label>
+                                <input type="range" id="brush_size_range" min="1" max="50">
+                            </form>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div id="brush_size_box" class="m-auto"></div>
+                            </div>
+                        </div>
                     </div>
                     
                     <div class="col-2">
