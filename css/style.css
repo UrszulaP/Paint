@@ -11,6 +11,7 @@ body {
 
 #paper {
     background-image: url("../img/paper.jpg");
+    border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -21,11 +22,13 @@ body {
 
 #color_box {
     background-color: white; /* placeholder */
+    border: 1px solid black;
     border-radius: 10px;
 }
 
 #brush_size_box {
     background-color: white; /* placeholder */
+    border: 1px solid black;
     border-radius: 50%;
     width: 100px; /* placeholder */
     height: 100px; /* placeholder */
