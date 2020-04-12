@@ -33,21 +33,18 @@
 
 <body>
     <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="title">
-                <h1>Magic JS Paint</h1>
+        <div class="row justify-content-center mb-4">
+            <div class="title position-absolute">
+                <h1>Magic Ula Paint</h1>
             </div>
+            
+            <button class="btn btn-outline-light ml-auto" type="button" data-toggle="collapse" data-target="#menu">
+                Menu
+            </button>
         </div>
         
-        <div class="row">
-            <div class="col-1">
-                <button class="btn btn-outline-light" type="button" data-toggle="collapse" data-target="#menu"
-                    aria-expanded="false" aria-controls="collapseMenu">
-                    Menu
-                </button>
-            </div>
-        
-            <div class="collapse show col-11" id="menu">
+        <div class="row">        
+            <div class="collapse show col" id="menu">
                 <div class="row">
                     <div class="col-6">
                         <div class="row mb-3">
@@ -96,9 +93,9 @@
                                 <input type="range" id="brush_size_range" min="1" max="50">
                             </form>
                         </div>
-                        <div class="row">
+                        <div class="row align-items-center">
                             <div class="col">
-                                <div id="brush_size_box" class="m-auto"></div>
+                                <div id="brush_size_box" class="mx-auto"></div>
                             </div>
                         </div>
                     </div>
