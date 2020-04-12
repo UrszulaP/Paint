@@ -1,5 +1,3 @@
-// Code from https://javascript30.com/
-
 const canvas = document.querySelector('#paper');
 const ctx = canvas.getContext('2d'); // we don`t draw directly on the canvas but on the context
 // resize the canvas to fit the window
