@@ -119,14 +119,14 @@
                     <div class="col-2">
                         <h5>Paper size</h5>
                         <div class="row justify-content-around align-items-center mb-3">
-                            <button class="btn btn-sm btn-outline-light c_size_button mr-1">-</button>
+                            <button id="paper_width_minus" class="btn btn-sm btn-outline-light c_size_button mr-1">-</button>
                                 Width
-                            <button class="btn btn-sm btn-outline-light c_size_button ml-1">+</button>
+                            <button id="paper_width_plus" class="btn btn-sm btn-outline-light c_size_button ml-1">+</button>
                         </div>
                         <div class="row justify-content-around align-items-center">
-                            <button class="btn btn-sm btn-outline-light c_size_button mr-1">-</button>
+                            <button id="paper_height_minus" class="btn btn-sm btn-outline-light c_size_button mr-1">-</button>
                                 Height
-                            <button class="btn btn-sm btn-outline-light c_size_button ml-1">+</button>
+                            <button id="paper_height_plus" class="btn btn-sm btn-outline-light c_size_button ml-1">+</button>
                         </div>
                     </div>
                     
@@ -147,7 +147,7 @@
 
         <div class="row justify-content-center">
             <div class="paper">
-                <canvas id="paper" width="500" height="500"></canvas>
+                <canvas id="paper" width="1000" height="500"></canvas>
             </div>
         </div>
 

@@ -1,4 +1,4 @@
-// CHANGING COLORS OF (COLOR RANGE INPUTS, BRUSHSIZE RANGE INPUT, COLORBOX AND BRUSHSIZEBOX) BY THE VALUES OF COLOR RANGE INPUTS
+// CHANGING COLORS OF (COLOR RANGE INPUTS, COLORBOX AND BRUSHSIZEBOX) BY THE VALUES OF COLOR RANGE INPUTS
 
 // hue_css          automatically catches   <style id="hue_css"></style>
 // saturation_css   automatically catches   <style id="saturation_css"></style>
