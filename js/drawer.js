@@ -32,6 +32,11 @@ function changePaperSize(width, height) {
 }
 
 
+// PAPER CLEARING
+
+document.getElementById("clear_paper").addEventListener("click", setUpBrush);
+
+
 
 // BRUSH COLOR
 
@@ -109,6 +114,8 @@ canvas.addEventListener('mouseout', () => isDrawing = false);
 // BRUSH SETUP
 
 function setUpBrush() {
+    canvas.width = canvas.width;
+    canvas.height = canvas.height;
     changeBrushColor(hueRange.value, saturationRange.value, lightnessRange.value);
     changeBrushSize(brushSizeRange.value);
     ctx.lineJoin = 'round';

@@ -42,6 +42,10 @@ body {
     width: 32px;
 }
 
+.c_icon_button {
+    cursor: pointer;
+}
+
 
 /* .row {
     border: 1px black solid;
