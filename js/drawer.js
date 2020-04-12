@@ -3,8 +3,8 @@ const ctx = canvas.getContext('2d');
 
 ctx.lineJoin = 'round';
 ctx.lineCap = 'round';
-ctx.lineWidth = 10;
-
+ctx.strokeStyle;
+ctx.lineWidth;
 
 // BRUSH COLOR
 
@@ -26,8 +26,14 @@ function changeBrushColor(hue, saturation, lightness) {
 
 // BRUSH SIZE
 
+let brushSizeRange = document.getElementById("brush_size");
+brushSizeRange.addEventListener("change", function() {changeBrushSize(brushSizeRange.value)});
 
+changeBrushSize(brushSizeRange.value);
 
+function changeBrushSize(size) {
+    ctx.lineWidth = size;
+}
 
 
 // DRAWING
@@ -38,7 +44,7 @@ let lastY = 0;
 
 
 function draw(e) {
-    if (!isDrawing) return; // stop function when the mouse button is not clicked down
+    if (!isDrawing) return;
     drawLine(e);
 }
 
@@ -59,4 +65,4 @@ canvas.addEventListener('mousedown', (e) => {
 });
 
 canvas.addEventListener('mouseup', () => isDrawing = false);
-canvas.addEventListener('mouseout', () => isDrawing = false); // prevents drawing when mouseup out of canvas element and moving back 
+canvas.addEventListener('mouseout', () => isDrawing = false);
