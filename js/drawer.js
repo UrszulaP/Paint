@@ -1,4 +1,4 @@
-// DRAWING WHEN MOUSE DOWN, CHANGING THE BRUSH COLOR AND SIZE, CHANGING SIZE OF THE BRUSHSIZEBOX, CHANGING PAPER SIZE
+// DRAWING WHEN MOUSE DOWN, CHANGING THE BRUSH COLOR AND SIZE, CHANGING SIZE OF THE BRUSHSIZEBOX, CHANGING PAPER SIZE, SAVING IMAGE
 
 const canvas = document.querySelector('#paper');
 const ctx = canvas.getContext('2d');
@@ -32,9 +32,11 @@ function changePaperSize(width, height) {
 }
 
 
+
 // PAPER CLEARING
 
 document.getElementById("clear_paper").addEventListener("click", setUpBrush);
+
 
 
 // SAVE
@@ -45,6 +47,7 @@ function save() {
     let image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
     window.location.href = image;
 }
+
 
 
 // BRUSH COLOR
