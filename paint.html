@@ -33,66 +33,80 @@
 
 <body>
     <div class="container-fluid">
-        <div class="row justify-content-center mb-4">
+        <div class="row justify-content-center mb-5">
             <div class="title position-absolute">
                 <h1>Magic Ula Paint</h1>
             </div>
-            
             <button class="btn btn-outline-light ml-auto" type="button" data-toggle="collapse" data-target="#menu">
                 Menu
             </button>
         </div>
         
-        <div class="row">        
+        <div class="row mb-5">        
             <div class="collapse show col" id="menu">
-                <div class="row">
+                <div class="row p-3">
                     <div class="col-6">
-                        <div class="row mb-3">
-                            <div class="col-2">
-                                <p>Color</p>
-                            </div>
-                            <div class="col-10">
-                                <div id="color_box" class="w-50 h-100 m-auto"></div>
+                        <div class="row">
+                            <div class="col">
+                                <h5>Color</h5>
                             </div>
                         </div>
                         
-                        <form class="w-100">
-                            <div class="row">
-                                <div class="col-2">
-                                    <label for="hue_range">Hue</label>
-                                </div>
-                                <div class="col-10">
-                                    <input type="range" id="hue_range" min="0" max="360">
-                                </div>
+                        <div class="row">
+                            <div class="col-2 p-1">
+                                <div id="color_box" class="w-100 h-100 m-auto"></div>
                             </div>
                             
-                            <div class="row">
-                                <div class="col-2">
-                                    <label for="saturation_range">Saturation</label>
-                                </div>
-                                <div class="col-10">
-                                    <input type="range" id="saturation_range" min="0" max="100">
-                                </div>
+                            <div class="col-10">
+                                <form class="w-100">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <label for="hue_range">Hue</label>
+                                        </div>
+                                        <div class="col-10">
+                                            <input type="range" id="hue_range" min="0" max="360">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <label for="saturation_range">Saturation</label>
+                                        </div>
+                                        <div class="col-10">
+                                            <input type="range" id="saturation_range" min="0" max="100">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <label for="lightness_range">Lightness</label>
+                                        </div>
+                                        <div class="col-10">
+                                            <input type="range" id="lightness_range" min="0" max="100">
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
-                            
-                            <div class="row">
-                                <div class="col-2">
-                                    <label for="lightness_range">Lightness</label>
-                                </div>
-                                <div class="col-10">
-                                    <input type="range" id="lightness_range" min="0" max="100">
-                                </div>
-                            </div>
-                        </form>
+                        </div>
                     </div>
                     
                     <div class="col-3">
                         <div class="row">
                             <form class="w-100">
-                                <label for="hue_range">Brush size</label>
-                                <input type="range" id="brush_size_range" min="1" max="50">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5>Brush size</h5>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="range" id="brush_size_range" min="1" max="50">
+                                    </div>
+                                </div>
                             </form>
                         </div>
+                        
                         <div class="row align-items-center">
                             <div class="col">
                                 <div id="brush_size_box" class="mx-auto"></div>
@@ -101,11 +115,11 @@
                     </div>
                     
                     <div class="col-2">
-                        Paint size
+                        <h5>Paint size</h5>
                     </div>
                     
                     <div class="col-1">
-                        Save
+                        <h5>Save</h5>
                     </div>
                 </div>
             </div>
