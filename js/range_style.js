@@ -5,33 +5,37 @@
 let hueRange = document.getElementById("hue_range");
 let saturationRange = document.getElementById("saturation_range");
 let lightnessRange = document.getElementById("lightness_range");
-
+let colorBox = document.getElementById("color_box");
 
 hueRange.addEventListener("change", function() {
     changeSaturationRangeColor(hueRange.value, lightnessRange.value);
     changeLightnessRangeColor(hueRange.value, saturationRange.value);
+    changeColorBoxColor(hueRange.value, saturationRange.value, lightnessRange.value);
 });
 
 saturationRange.addEventListener("change", function() {
     changeHueRangeColor(saturationRange.value, lightnessRange.value);
     changeLightnessRangeColor(hueRange.value, saturationRange.value);
+    changeColorBoxColor(hueRange.value, saturationRange.value, lightnessRange.value);
 });
 
 lightnessRange.addEventListener("change", function() {
     changeHueRangeColor(saturationRange.value, lightnessRange.value);
     changeSaturationRangeColor(hueRange.value, lightnessRange.value);
+    changeColorBoxColor(hueRange.value, saturationRange.value, lightnessRange.value);
 });
 
 
 changeHueRangeColor(saturationRange.value, lightnessRange.value);
 changeSaturationRangeColor(hueRange.value, lightnessRange.value);
 changeLightnessRangeColor(hueRange.value, saturationRange.value);
+changeColorBoxColor(hueRange.value, saturationRange.value, lightnessRange.value);
 
 
 function changeHueRangeColor(saturationValue, lightnessValue) {
     gradientColors = "";
     for (let i = 0; i <= 360; i += 10) {
-        gradientColors += `hsla(${i}, ${saturationValue}%, ${lightnessValue}%, 1),`;
+        gradientColors += `hsl(${i}, ${saturationValue}%, ${lightnessValue}%),`;
     };
     gradientColors = gradientColors.slice(0, -1);
     hue_css.innerHTML = `
@@ -44,7 +48,7 @@ function changeHueRangeColor(saturationValue, lightnessValue) {
 function changeSaturationRangeColor(hueValue, lightnessValue) {
     gradientColors = "";
     for (let i = 0; i <= 100; i += 10) {
-        gradientColors += `hsla(${hueValue}, ${i}%, ${lightnessValue}%, 1),`;
+        gradientColors += `hsl(${hueValue}, ${i}%, ${lightnessValue}%),`;
     };
     gradientColors = gradientColors.slice(0, -1);
     saturation_css.innerHTML = `
@@ -57,11 +61,16 @@ function changeSaturationRangeColor(hueValue, lightnessValue) {
 function changeLightnessRangeColor(hueValue, saturationValue) {
     gradientColors = "";
     for (let i = 0; i <= 100; i += 10) {
-        gradientColors += `hsla(${hueValue}, ${saturationValue}%, ${i}%, 1),`;
+        gradientColors += `hsl(${hueValue}, ${saturationValue}%, ${i}%),`;
     };
     gradientColors = gradientColors.slice(0, -1);
     lightness_css.innerHTML = `
         #lightness_range::-webkit-slider-runnable-track {
             background: -webkit-linear-gradient(left, ${gradientColors});
         }`;
+}
+
+
+function changeColorBoxColor(hueValue, saturationValue, lightnessValue) {
+    colorBox.style.backgroundColor = `hsl(${hueValue}, ${saturationValue}%, ${lightnessValue}%)`;
 }
