@@ -22,13 +22,13 @@ body {
 
 #color_box {
     background-color: white; /* placeholder */
-    border: 1px solid black;
+    border: 1px solid #01010175;
     border-radius: 10px;
 }
 
 #brush_size_box {
     background-color: white; /* placeholder */
-    border: 1px solid black;
+    border: 1px solid #01010175;
     border-radius: 50%;
     width: 100px; /* placeholder */
     height: 100px; /* placeholder */
