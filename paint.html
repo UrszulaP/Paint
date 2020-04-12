@@ -2,44 +2,125 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>HTML5 Canvas</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="stylesheet" type="text/css" href="range_style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
-  <style id="hue_css"></style>
-  <style id="saturation_css"></style>
-  <style id="lightness_css"></style>
-  
+    <meta charset="UTF-8">
+    <title>HTML5 Canvas</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+    crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" 
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" 
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" 
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" 
+    crossorigin="anonymous"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <!-- Custom styles -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/range_style.css">
+    <!-- Range inputs color style placeholders maintaned by range_style.js -->
+    <style id="hue_css"></style>
+    <style id="saturation_css"></style>
+    <style id="lightness_css"></style>
 </head>
 
 <body>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="title">
+                <h1>Magic JS Paint</h1>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-1">
+                <button class="btn btn-outline-light" type="button" data-toggle="collapse" data-target="#menu"
+                    aria-expanded="false" aria-controls="collapseMenu">
+                    Menu
+                </button>
+            </div>
+        
+            <div class="collapse show col-11" id="menu">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row mb-3">
+                            <div class="col-2">
+                                <p>Color</p>
+                            </div>
+                            <div class="col-10">
+                                <div class="colorBox w-50 h-100 m-auto"></div>
+                            </div>
+                        </div>
+                        
+                        <form>
+                            <div class="row">
+                                <div class="col-2">
+                                    <label for="hue_range">Hue</label>
+                                </div>
+                                <div class="col-10">
+                                    <input type="range" id="hue_range" min="0" max="360">
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-2">
+                                    <label for="saturation_range">Saturation</label>
+                                </div>
+                                <div class="col-10">
+                                    <input type="range" id="saturation_range" min="0" max="100">
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-2">
+                                    <label for="lightness_range">Lightness</label>
+                                </div>
+                                <div class="col-10">
+                                    <input type="range" id="lightness_range" min="0" max="100">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="col-3">
+                        Width
+                    </div>
+                    
+                    <div class="col-2">
+                        Paint size
+                    </div>
+                    
+                    <div class="col-1">
+                        Save
+                    </div>
+                </div>
+            </div>
+            
 
-  <div class="title">
-    <h1>Magic JS Paint</h1>
-  </div>
+        </div>
 
-  <div class="paper">
-    <canvas id="paper" width="500" height="500"></canvas>
-  </div>
 
-  <div class="menu">
-    <form>
-      <label for="hue">Hue</label>
-      <input type="range" id="hue_range" name="hue" min="0" max="360">
 
-      <label for="hue">Saturation</label>
-      <input type="range" id="saturation_range" name="saturation" min="0" max="100">
+        <div class="row justify-content-center">
+            <div class="paper">
+                <canvas id="paper" width="500" height="500"></canvas>
+            </div>
+        </div>
 
-      <label for="hue">Lightness</label>
-      <input type="range" id="lightness_range" name="lightness" min="0" max="100">
-    </form>
-  </div>
-  
 
-  <script src="mixed_drawer.js"></script>
-  <script src="range_style.js"></script>
+
+    </div>
+
+    <script src="js/mixed_drawer.js"></script>
+    <script src="js/range_style.js"></script>
+
 
 </body>
+
 </html>

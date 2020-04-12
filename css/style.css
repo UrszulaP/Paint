@@ -1,0 +1,32 @@
+body {
+    background-image: url("../img/background.jpg");
+    background-size: cover;
+    font-family: 'Indie Flower', cursive;
+    color: white;
+}
+
+.container-fluid {
+    padding: 30px 5%;
+}
+
+#paper {
+    background-image: url("../img/paper.jpg");
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+#menu {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.colorBox {
+    background-color: white;
+    border-radius: 10px;
+}
+
+/* .row {
+    border: 1px black solid;
+}
+.col, .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+    border: 1px black solid;
+} */
