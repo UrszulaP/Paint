@@ -37,6 +37,15 @@ function changePaperSize(width, height) {
 document.getElementById("clear_paper").addEventListener("click", setUpBrush);
 
 
+// SAVE
+
+document.getElementById("save").addEventListener("click", save);
+
+function save() {
+    let image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+    window.location.href = image;
+}
+
 
 // BRUSH COLOR
 

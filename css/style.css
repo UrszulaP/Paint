@@ -43,7 +43,12 @@ body {
 }
 
 .c_icon_button {
+    border-radius: 10px;
     cursor: pointer;
+}
+
+.c_icon_button:active {
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 
