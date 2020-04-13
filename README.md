@@ -10,13 +10,13 @@ Link to deployed site: https://ulasmagicpaint.herokuapp.com/index.html
 * HTML Canvas
 
 ## Features
-* Drawing on paper
-* Changing brush color and size
+* Drawing on the paper
+* Changing the brush color and size
 * Changing the paper size
 * Clearing the paper
-* Saving the image on local device (need to add .png extention)
-* Changing colors of color range inputs according to the chosen hue, saturation and lightness
-* Visualization of chosen color and brush size
+* Saving the image on a local device (need to add .png extention)
+* Changing colors of the color range inputs according to the chosen hue, saturation and lightness
+* Visualization of the chosen color and the brush size
 * Site has a responsive design
 
 ## Contact
