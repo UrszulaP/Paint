@@ -3,11 +3,6 @@ Online painting app created on my own with JavaScript.
 
 Link to deployed site: https://ulasmagicpaint.herokuapp.com/index.html
 
-## Table of contents
-* [Technologies](#technologies)
-* [Features](#features)
-* [Contact](#contact)
-
 ## Technologies
 * JavaScript ES6
 * Bootstrap
