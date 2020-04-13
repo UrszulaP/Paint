@@ -1,12 +1,13 @@
 body {
     background-image: url("../img/background.jpg");
-    background-size: cover;
+    /* background-size: cover; */
     font-family: 'Indie Flower', cursive;
     color: white;
 }
 
 .container-fluid {
     padding: 30px 5%;
+    min-width: 500px;
 }
 
 #paper {
