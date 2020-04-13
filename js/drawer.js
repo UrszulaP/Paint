@@ -4,12 +4,11 @@ const canvas = document.querySelector('#paper');
 const ctx = canvas.getContext('2d');
 
 
-
 // PAPER SIZE
 
 let sizeStep = 50;
 let paperMinWidth = 200;
-let paperMaxWidth =  document.getElementById("menu").clientWidth - sizeStep;
+let paperMaxWidth =  2000;
 let paperMinHeight = 200;
 let paperMaxHeight = paperMaxWidth;
 
@@ -21,7 +20,6 @@ document.getElementById("paper_height_minus").addEventListener("click", function
                                                                                     setUpBrush()});
 document.getElementById("paper_height_plus").addEventListener("click", function() {changePaperSize(width=0, height=sizeStep);
                                                                                    setUpBrush()});
-
 function changePaperSize(width, height) {
     if (!((canvas.width <= paperMinWidth && width < 0) || (canvas.width >= paperMaxWidth && width > 0))) {
         canvas.width += width;
@@ -29,14 +27,23 @@ function changePaperSize(width, height) {
     if (!((canvas.height <= paperMinHeight && height < 0) || (canvas.height >= paperMaxHeight && height > 0))) {
         canvas.height += height;
     };
+    adjustPaperPosition();
 }
 
+function adjustPaperPosition() {
+    if (canvas.width >= (document.getElementById("menu").clientWidth - sizeStep)) {
+        canvas.parentElement.classList.remove("justify-content-center");
+    };
+    if (canvas.width < document.getElementById("menu").clientWidth) {
+        canvas.parentElement.classList.add("justify-content-center");
+    };
+}
 
+window.addEventListener("resize", adjustPaperPosition);
 
-// PAPER CLEARING
+// CLEAR
 
-document.getElementById("clear_paper").addEventListener("click", setUpBrush);
-
+document.getElementById("clear_paper").addEventListener("click", function() {setUpBrush()});
 
 
 // SAVE
@@ -47,7 +54,6 @@ function save() {
     let image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
     window.location.href = image;
 }
-
 
 
 // BRUSH COLOR
@@ -64,7 +70,6 @@ lightnessRange.addEventListener("change", function() {changeBrushColor(hueRange.
 function changeBrushColor(hue, saturation, lightness) {
     ctx.strokeStyle = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 }
-
 
 
 // BRUSH SIZE
@@ -86,16 +91,12 @@ function changeBrushSizeBoxSize(size) {
     brushSizeBox.style.height = `${size}px`;
 }
 
-changeBrushSizeBoxSize(brushSizeRange.value);
-
-
 
 // DRAWING
 
 let isDrawing = false;
 let lastX = 0;
 let lastY = 0;
-
 
 function draw(e) {
     if (!isDrawing) return;
@@ -110,28 +111,27 @@ function drawLine(e) {
     [lastX, lastY] = [e.offsetX, e.offsetY];
 }
 
-
 canvas.addEventListener('mousemove', draw);
-
 canvas.addEventListener('mousedown', (e) => {
     isDrawing = true;
     [lastX, lastY] = [e.offsetX, e.offsetY];
 });
-
 canvas.addEventListener('mouseup', () => isDrawing = false);
 canvas.addEventListener('mouseout', () => isDrawing = false);
 
 
+// SETUP
 
-// BRUSH SETUP
-
-function setUpBrush() {
-    canvas.width = canvas.width;
-    canvas.height = canvas.height;
+function setUpBrush(width = canvas.width, height = canvas.height) {
+    canvas.width = width;
+    canvas.height = height;
     changeBrushColor(hueRange.value, saturationRange.value, lightnessRange.value);
     changeBrushSize(brushSizeRange.value);
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
 }
 
-setUpBrush();
+setUpBrush(width = (0.7 * document.getElementById("menu").clientWidth), 
+           height = (0.5 * document.getElementById("menu").clientWidth));
+
+changeBrushSizeBoxSize(brushSizeRange.value);
