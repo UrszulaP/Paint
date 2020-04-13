@@ -7,7 +7,6 @@ body {
 
 .container-fluid {
     padding: 30px 5%;
-    min-width: 500px;
 }
 
 #paper {
@@ -56,6 +55,13 @@ body {
     font-size: 64px; 
     color: rgba(255, 255, 255, 0.9);
 }
+
+@media (max-width: 500px) {
+    .c_title {
+        position: static !important;
+    }
+}
+
 
 /* SCROLLBAR */
 
