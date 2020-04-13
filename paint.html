@@ -46,6 +46,7 @@
         <div class="row mb-5">        
             <div class="collapse show col" id="menu">
                 <div class="row p-3">
+                    <!-- COLOR -->
                     <div class="col-6">
                         <div class="row">
                             <div class="col">
@@ -91,21 +92,20 @@
                         </div>
                     </div>
                     
+                    <!-- BRUSH SIZE -->
                     <div class="col-2">
                         <div class="row">
-                            <form class="w-100">
-                                <div class="row">
-                                    <div class="col">
-                                        <h5>Brush size</h5>
-                                    </div>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col">
+                            <div class="col">
+                                <h5>Brush size</h5>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col">
+                                <form class="w-100">
                                         <input type="range" id="brush_size_range" min="1" max="70">
-                                    </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
                         </div>
                         
                         <div class="row" style="height: 70px"> <!-- fixed height of 2 rows with inputs on the left -->
@@ -115,8 +115,13 @@
                         </div>
                     </div>
                     
+                    <!-- PAPER SIZE -->
                     <div class="col-2">
-                        <h5>Paper size</h5>
+                        <div class="row">
+                            <div class="col">
+                                <h5>Paper size</h5>
+                            </div>
+                        </div>
                         <div class="row justify-content-around align-items-center mb-3">
                             <button id="paper_width_minus" class="btn btn-sm btn-outline-light c_size_button mr-1">-</button>
                                 Width
@@ -129,17 +134,33 @@
                         </div>
                     </div>
                     
+                    <!-- CLEAR -->
                     <div class="col-1">
-                        <h5>Clear</h5>
-                        <div id="clear_paper" class="c_icon_button text-center">
-                            <i class="fas fa-eraser" style="font-size: 64px; color: rgba(255, 255, 255, 0.9)"></i>
+                        <div class="row">
+                            <div class="col">
+                                <h5>Clear</h5>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div id="clear_paper" class="col c_icon_button text-center">
+                                <i class="fas fa-eraser" style="font-size: 64px; color: rgba(255, 255, 255, 0.9)"></i>
+                            </div>
                         </div>
                     </div>
                     
+                    <!-- SAVE -->
                     <div class="col-1">
-                        <h5>Save</h5>
-                        <div id="save" class="c_icon_button text-center">
-                            <i class="far fa-save" style="font-size: 64px; color: rgba(255, 255, 255, 0.9);"></i>
+                        <div class="row">
+                            <div class="col">
+                                <h5>Save</h5>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div id="save" class="col c_icon_button text-center">
+                                <i class="far fa-save" style="font-size: 64px; color: rgba(255, 255, 255, 0.9);"></i>
+                            </div>
                         </div>
                     </div>
                     
