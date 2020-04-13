@@ -1,7 +1,7 @@
 # Ula`s Magic Paint
 Online painting app created on my own with JavaScript.
 
-Link to deployed site: https://ulasmagicpaint.herokuapp.com/index.html
+Link to the deployed site: https://ulasmagicpaint.herokuapp.com/index.html
 
 ## Technologies
 * JavaScript ES6
