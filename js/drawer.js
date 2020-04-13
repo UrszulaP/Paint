@@ -1,4 +1,5 @@
-// DRAWING WHEN MOUSE DOWN, CHANGING THE BRUSH COLOR AND SIZE, CHANGING SIZE OF THE BRUSHSIZEBOX, CHANGING PAPER SIZE, SAVING IMAGE
+// DRAWING WHEN MOUSE DOWN, CHANGING THE BRUSH COLOR AND SIZE, CHANGING SIZE OF THE BRUSHSIZEBOX, 
+// CHANGING PAPER SIZE, CLEARNIG PAPER, SAVING IMAGE
 
 const canvas = document.querySelector('#paper');
 const ctx = canvas.getContext('2d');
@@ -40,6 +41,7 @@ function adjustPaperPosition() {
 }
 
 window.addEventListener("resize", adjustPaperPosition);
+
 
 // CLEAR
 

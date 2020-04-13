@@ -33,13 +33,6 @@ lightnessRange.addEventListener("change", function() {
 });
 
 
-changeHueRangeColor(saturationRange.value, lightnessRange.value);
-changeSaturationRangeColor(hueRange.value, lightnessRange.value);
-changeLightnessRangeColor(hueRange.value, saturationRange.value);
-changeColorBoxColor(hueRange.value, saturationRange.value, lightnessRange.value);
-changeBrushSizeBoxColor(hueRange.value, saturationRange.value, lightnessRange.value);
-
-
 function changeHueRangeColor(saturationValue, lightnessValue) {
     gradientColors = "";
     for (let i = 0; i <= 360; i += 10) {
@@ -51,7 +44,6 @@ function changeHueRangeColor(saturationValue, lightnessValue) {
             background: -webkit-linear-gradient(left, ${gradientColors});
         }`;
 }
-
 
 function changeSaturationRangeColor(hueValue, lightnessValue) {
     gradientColors = "";
@@ -65,7 +57,6 @@ function changeSaturationRangeColor(hueValue, lightnessValue) {
         }`;
 }
 
-
 function changeLightnessRangeColor(hueValue, saturationValue) {
     gradientColors = "";
     for (let i = 0; i <= 100; i += 10) {
@@ -78,12 +69,19 @@ function changeLightnessRangeColor(hueValue, saturationValue) {
         }`;
 }
 
-
 function changeColorBoxColor(hueValue, saturationValue, lightnessValue) {
     colorBox.style.backgroundColor = `hsl(${hueValue}, ${saturationValue}%, ${lightnessValue}%)`;
 }
 
-
 function changeBrushSizeBoxColor(hueValue, saturationValue, lightnessValue) {
     brushSizeBox.style.backgroundColor = `hsl(${hueValue}, ${saturationValue}%, ${lightnessValue}%)`;
 }
+
+
+// SETUP 
+
+changeHueRangeColor(saturationRange.value, lightnessRange.value);
+changeSaturationRangeColor(hueRange.value, lightnessRange.value);
+changeLightnessRangeColor(hueRange.value, saturationRange.value);
+changeColorBoxColor(hueRange.value, saturationRange.value, lightnessRange.value);
+changeBrushSizeBoxColor(hueRange.value, saturationRange.value, lightnessRange.value);
