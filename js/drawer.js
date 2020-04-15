@@ -17,13 +17,13 @@ const ctx = canvas.getContext('2d');
 
 // PAPER SIZE
 
-document.getElementById("paper_width_minus").addEventListener("click", function() {changePaperSize(width=-config.sizeStep, height=0);
+document.getElementById("paper_width_minus").addEventListener("click", function() {changePaperSize(-config.sizeStep, 0);
                                                                                    setUpBrush()});
-document.getElementById("paper_width_plus").addEventListener("click", function() {changePaperSize(width=config.sizeStep, height=0);
+document.getElementById("paper_width_plus").addEventListener("click", function() {changePaperSize(config.sizeStep, 0);
                                                                                   setUpBrush()});
-document.getElementById("paper_height_minus").addEventListener("click", function() {changePaperSize(width=0, height=-config.sizeStep);
+document.getElementById("paper_height_minus").addEventListener("click", function() {changePaperSize(0, -config.sizeStep);
                                                                                     setUpBrush()});
-document.getElementById("paper_height_plus").addEventListener("click", function() {changePaperSize(width=0, height=config.sizeStep);
+document.getElementById("paper_height_plus").addEventListener("click", function() {changePaperSize(0, config.sizeStep);
                                                                                    setUpBrush()});
 function changePaperSize(width, height) {
     if (!((canvas.width <= config.paperMinWidth && width < 0) || (canvas.width >= config.paperMaxWidth && width > 0))) {
@@ -137,7 +137,7 @@ function setUpBrush(width = canvas.width, height = canvas.height) {
     ctx.lineCap = 'round';
 }
 
-setUpBrush(width = (0.7 * document.getElementById("menu").clientWidth), 
-           height = (0.5 * document.getElementById("menu").clientWidth));
+setUpBrush((0.7 * document.getElementById("menu").clientWidth), 
+           (0.5 * document.getElementById("menu").clientWidth));
 
 changeBrushSizeBoxSize(brushSizeRange.value);
