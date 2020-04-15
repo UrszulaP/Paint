@@ -11,21 +11,21 @@ let colorBox = document.getElementById("color_box");
 let brushSizeBox = document.getElementById("brush_size_box");
 
 
-hueRange.addEventListener("change", function() {
+hueRange.addEventListener("change", () => {
     changeSaturationRangeColor(hueRange.value, lightnessRange.value);
     changeLightnessRangeColor(hueRange.value, saturationRange.value);
     changeColorBoxColor(hueRange.value, saturationRange.value, lightnessRange.value);
     changeBrushSizeBoxColor(hueRange.value, saturationRange.value, lightnessRange.value);
 });
 
-saturationRange.addEventListener("change", function() {
+saturationRange.addEventListener("change", () => {
     changeHueRangeColor(saturationRange.value, lightnessRange.value);
     changeLightnessRangeColor(hueRange.value, saturationRange.value);
     changeColorBoxColor(hueRange.value, saturationRange.value, lightnessRange.value);
     changeBrushSizeBoxColor(hueRange.value, saturationRange.value, lightnessRange.value);
 });
 
-lightnessRange.addEventListener("change", function() {
+lightnessRange.addEventListener("change", () => {
     changeHueRangeColor(saturationRange.value, lightnessRange.value);
     changeSaturationRangeColor(hueRange.value, lightnessRange.value);
     changeColorBoxColor(hueRange.value, saturationRange.value, lightnessRange.value);
