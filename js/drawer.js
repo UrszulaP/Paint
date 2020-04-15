@@ -1,38 +1,42 @@
 // DRAWING WHEN MOUSE DOWN, CHANGING THE BRUSH COLOR AND SIZE, CHANGING SIZE OF THE BRUSHSIZEBOX, 
 // CHANGING PAPER SIZE, CLEARNIG PAPER, SAVING IMAGE
 
+// CONFIG
+
+const config = {
+    sizeStep: 50,
+    paperMinWidth: 200,
+    paperMaxWidth:  2000,
+    paperMinHeight: 200,
+    paperMaxHeight: 2000,
+};
+
 const canvas = document.querySelector('#paper');
 const ctx = canvas.getContext('2d');
 
 
 // PAPER SIZE
 
-let sizeStep = 50;
-let paperMinWidth = 200;
-let paperMaxWidth =  2000;
-let paperMinHeight = 200;
-let paperMaxHeight = paperMaxWidth;
-
-document.getElementById("paper_width_minus").addEventListener("click", function() {changePaperSize(width=-sizeStep, height=0);
+document.getElementById("paper_width_minus").addEventListener("click", function() {changePaperSize(width=-config.sizeStep, height=0);
                                                                                    setUpBrush()});
-document.getElementById("paper_width_plus").addEventListener("click", function() {changePaperSize(width=sizeStep, height=0);
+document.getElementById("paper_width_plus").addEventListener("click", function() {changePaperSize(width=config.sizeStep, height=0);
                                                                                   setUpBrush()});
-document.getElementById("paper_height_minus").addEventListener("click", function() {changePaperSize(width=0, height=-sizeStep);
+document.getElementById("paper_height_minus").addEventListener("click", function() {changePaperSize(width=0, height=-config.sizeStep);
                                                                                     setUpBrush()});
-document.getElementById("paper_height_plus").addEventListener("click", function() {changePaperSize(width=0, height=sizeStep);
+document.getElementById("paper_height_plus").addEventListener("click", function() {changePaperSize(width=0, height=config.sizeStep);
                                                                                    setUpBrush()});
 function changePaperSize(width, height) {
-    if (!((canvas.width <= paperMinWidth && width < 0) || (canvas.width >= paperMaxWidth && width > 0))) {
+    if (!((canvas.width <= config.paperMinWidth && width < 0) || (canvas.width >= config.paperMaxWidth && width > 0))) {
         canvas.width += width;
     };
-    if (!((canvas.height <= paperMinHeight && height < 0) || (canvas.height >= paperMaxHeight && height > 0))) {
+    if (!((canvas.height <= config.paperMinHeight && height < 0) || (canvas.height >= config.paperMaxHeight && height > 0))) {
         canvas.height += height;
     };
     adjustPaperPosition();
 }
 
 function adjustPaperPosition() {
-    if (canvas.width >= (document.getElementById("menu").clientWidth - sizeStep)) {
+    if (canvas.width >= (document.getElementById("menu").clientWidth - config.sizeStep)) {
         canvas.parentElement.classList.remove("justify-content-center");
     };
     if (canvas.width < document.getElementById("menu").clientWidth) {
