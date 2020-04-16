@@ -26,14 +26,22 @@ const ctx = canvas.getContext('2d');
 
 // PAPER SIZE
 
-paperWidthMinusEl.addEventListener("click", () => {changePaperSize(-config.sizeStep, 0);
-                                                   setUpBrush()});
-paperWidthPlusEl.addEventListener("click", () => {changePaperSize(config.sizeStep, 0);
-                                                  setUpBrush()});
-paperHeightMinusEl.addEventListener("click", () => {changePaperSize(0, -config.sizeStep);
-                                                    setUpBrush()});
-paperHeightPlusEl.addEventListener("click", () => {changePaperSize(0, config.sizeStep);
-                                                   setUpBrush()});
+paperWidthMinusEl.addEventListener("click", () => {
+    changePaperSize(-config.sizeStep, 0);
+    setUpBrush()
+});
+paperWidthPlusEl.addEventListener("click", () => {
+    changePaperSize(config.sizeStep, 0);
+    setUpBrush()
+});
+paperHeightMinusEl.addEventListener("click", () => {
+    changePaperSize(0, -config.sizeStep);
+    setUpBrush()
+});
+paperHeightPlusEl.addEventListener("click", () => {
+    changePaperSize(0, config.sizeStep);
+    setUpBrush()
+});
 
 function changePaperSize(deltaWidth, deltaHeight) {
     const newWidth = canvas.width + deltaWidth,
@@ -82,9 +90,15 @@ function save() {
 //      saturationRangeEl = document.getElementById("saturation_range");
 //      lightnessRangeEl = document.getElementById("lightness_range");
 
-hueRangeEl.addEventListener("change", () => {changeBrushColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value)});
-saturationRangeEl.addEventListener("change", () => {changeBrushColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value)});
-lightnessRangeEl.addEventListener("change", () => {changeBrushColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value)});
+hueRangeEl.addEventListener("change", () => {
+    changeBrushColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value)
+});
+saturationRangeEl.addEventListener("change", () => {
+    changeBrushColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value)
+});
+lightnessRangeEl.addEventListener("change", () => {
+    changeBrushColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value)
+});
 
 function changeBrushColor(hue, saturation, lightness) {
     ctx.strokeStyle = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
@@ -95,9 +109,10 @@ function changeBrushColor(hue, saturation, lightness) {
 
 // already declared in range_style.js:
 //const brushSizeBoxEl = document.getElementById("brush_size_box");
-brushSizeRangeEl.addEventListener("change", () => {changeBrushSize(brushSizeRangeEl.value);
-                                                   changeBrushSizeBoxSize(brushSizeRangeEl.value);
-                                                   });
+brushSizeRangeEl.addEventListener("change", () => {
+    changeBrushSize(brushSizeRangeEl.value);
+    changeBrushSizeBoxSize(brushSizeRangeEl.value);
+});
 
 function changeBrushSize(size) {
     ctx.lineWidth = size;
