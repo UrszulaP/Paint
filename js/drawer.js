@@ -18,30 +18,31 @@ const ctx = canvas.getContext('2d');
 // PAPER SIZE
 
 document.getElementById("paper_width_minus").addEventListener("click", () => {changePaperSize(-config.sizeStep, 0);
-                                                                                   setUpBrush()});
+                                                                              setUpBrush()});
 document.getElementById("paper_width_plus").addEventListener("click", () => {changePaperSize(config.sizeStep, 0);
-                                                                                  setUpBrush()});
+                                                                             setUpBrush()});
 document.getElementById("paper_height_minus").addEventListener("click", () => {changePaperSize(0, -config.sizeStep);
-                                                                                    setUpBrush()});
+                                                                               setUpBrush()});
 document.getElementById("paper_height_plus").addEventListener("click", () => {changePaperSize(0, config.sizeStep);
-                                                                                   setUpBrush()});
+                                                                              setUpBrush()});
+
 function changePaperSize(deltaWidth, deltaHeight) {
     if (!((canvas.width <= config.paperMinWidth && deltaWidth < 0) || (canvas.width >= config.paperMaxWidth && deltaWidth > 0))) {
         canvas.width += deltaWidth;
-    };
+    }
     if (!((canvas.height <= config.paperMinHeight && deltaHeight < 0) || (canvas.height >= config.paperMaxHeight && deltaHeight > 0))) {
         canvas.height += deltaHeight;
-    };
+    }
     adjustPaperPosition();
 }
 
 function adjustPaperPosition() {
     if (canvas.width >= (document.getElementById("menu").clientWidth - config.sizeStep)) {
         canvas.parentElement.classList.remove("justify-content-center");
-    };
+    }
     if (canvas.width < document.getElementById("menu").clientWidth) {
         canvas.parentElement.classList.add("justify-content-center");
-    };
+    }
 }
 
 window.addEventListener("resize", adjustPaperPosition);

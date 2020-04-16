@@ -37,7 +37,7 @@ function changeHueRangeColor(saturationValue, lightnessValue) {
     gradientColors = "";
     for (let i = 0; i <= 360; i += 10) {
         gradientColors += `hsl(${i}, ${saturationValue}%, ${lightnessValue}%),`;
-    };
+    }
     gradientColors = gradientColors.slice(0, -1);
     hue_css.innerHTML = `
         #hue_range::-webkit-slider-runnable-track {
@@ -49,7 +49,7 @@ function changeSaturationRangeColor(hueValue, lightnessValue) {
     gradientColors = "";
     for (let i = 0; i <= 100; i += 10) {
         gradientColors += `hsl(${hueValue}, ${i}%, ${lightnessValue}%),`;
-    };
+    }
     gradientColors = gradientColors.slice(0, -1);
     saturation_css.innerHTML = `
         #saturation_range::-webkit-slider-runnable-track {
@@ -61,7 +61,7 @@ function changeLightnessRangeColor(hueValue, saturationValue) {
     gradientColors = "";
     for (let i = 0; i <= 100; i += 10) {
         gradientColors += `hsl(${hueValue}, ${saturationValue}%, ${i}%),`;
-    };
+    }
     gradientColors = gradientColors.slice(0, -1);
     lightness_css.innerHTML = `
         #lightness_range::-webkit-slider-runnable-track {
