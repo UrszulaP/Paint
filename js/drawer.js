@@ -25,12 +25,12 @@ document.getElementById("paper_height_minus").addEventListener("click", () => {c
                                                                                     setUpBrush()});
 document.getElementById("paper_height_plus").addEventListener("click", () => {changePaperSize(0, config.sizeStep);
                                                                                    setUpBrush()});
-function changePaperSize(width, height) {
-    if (!((canvas.width <= config.paperMinWidth && width < 0) || (canvas.width >= config.paperMaxWidth && width > 0))) {
-        canvas.width += width;
+function changePaperSize(deltaWidth, deltaHeight) {
+    if (!((canvas.width <= config.paperMinWidth && deltaWidth < 0) || (canvas.width >= config.paperMaxWidth && deltaWidth > 0))) {
+        canvas.width += deltaWidth;
     };
-    if (!((canvas.height <= config.paperMinHeight && height < 0) || (canvas.height >= config.paperMaxHeight && height > 0))) {
-        canvas.height += height;
+    if (!((canvas.height <= config.paperMinHeight && deltaHeight < 0) || (canvas.height >= config.paperMaxHeight && deltaHeight > 0))) {
+        canvas.height += deltaHeight;
     };
     adjustPaperPosition();
 }
