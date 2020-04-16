@@ -4,32 +4,32 @@
 // saturation_css   automatically catches   <style id="saturation_css"></style>
 // lightness_css    automatically catches   <style id="lightness_css"></style>
 
-let hueRange = document.getElementById("hue_range");
-let saturationRange = document.getElementById("saturation_range");
-let lightnessRange = document.getElementById("lightness_range");
-let colorBox = document.getElementById("color_box");
-let brushSizeBox = document.getElementById("brush_size_box");
+const hueRangeEl = document.getElementById("hue_range"), 
+    saturationRangeEl = document.getElementById("saturation_range"),
+    lightnessRangeEl = document.getElementById("lightness_range"),
+    colorBoxEl = document.getElementById("color_box"),
+    brushSizeBoxEl = document.getElementById("brush_size_box");
 
 
-hueRange.addEventListener("change", () => {
-    changeSaturationRangeColor(hueRange.value, lightnessRange.value);
-    changeLightnessRangeColor(hueRange.value, saturationRange.value);
-    changeColorBoxColor(hueRange.value, saturationRange.value, lightnessRange.value);
-    changeBrushSizeBoxColor(hueRange.value, saturationRange.value, lightnessRange.value);
+hueRangeEl.addEventListener("change", () => {
+    changeSaturationRangeColor(hueRangeEl.value, lightnessRangeEl.value);
+    changeLightnessRangeColor(hueRangeEl.value, saturationRangeEl.value);
+    changeColorBoxColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value);
+    changeBrushSizeBoxColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value);
 });
 
-saturationRange.addEventListener("change", () => {
-    changeHueRangeColor(saturationRange.value, lightnessRange.value);
-    changeLightnessRangeColor(hueRange.value, saturationRange.value);
-    changeColorBoxColor(hueRange.value, saturationRange.value, lightnessRange.value);
-    changeBrushSizeBoxColor(hueRange.value, saturationRange.value, lightnessRange.value);
+saturationRangeEl.addEventListener("change", () => {
+    changeHueRangeColor(saturationRangeEl.value, lightnessRangeEl.value);
+    changeLightnessRangeColor(hueRangeEl.value, saturationRangeEl.value);
+    changeColorBoxColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value);
+    changeBrushSizeBoxColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value);
 });
 
-lightnessRange.addEventListener("change", () => {
-    changeHueRangeColor(saturationRange.value, lightnessRange.value);
-    changeSaturationRangeColor(hueRange.value, lightnessRange.value);
-    changeColorBoxColor(hueRange.value, saturationRange.value, lightnessRange.value);
-    changeBrushSizeBoxColor(hueRange.value, saturationRange.value, lightnessRange.value);
+lightnessRangeEl.addEventListener("change", () => {
+    changeHueRangeColor(saturationRangeEl.value, lightnessRangeEl.value);
+    changeSaturationRangeColor(hueRangeEl.value, lightnessRangeEl.value);
+    changeColorBoxColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value);
+    changeBrushSizeBoxColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value);
 });
 
 
@@ -70,18 +70,18 @@ function changeLightnessRangeColor(hueValue, saturationValue) {
 }
 
 function changeColorBoxColor(hueValue, saturationValue, lightnessValue) {
-    colorBox.style.backgroundColor = `hsl(${hueValue}, ${saturationValue}%, ${lightnessValue}%)`;
+    colorBoxEl.style.backgroundColor = `hsl(${hueValue}, ${saturationValue}%, ${lightnessValue}%)`;
 }
 
 function changeBrushSizeBoxColor(hueValue, saturationValue, lightnessValue) {
-    brushSizeBox.style.backgroundColor = `hsl(${hueValue}, ${saturationValue}%, ${lightnessValue}%)`;
+    brushSizeBoxEl.style.backgroundColor = `hsl(${hueValue}, ${saturationValue}%, ${lightnessValue}%)`;
 }
 
 
 // SETUP 
 
-changeHueRangeColor(saturationRange.value, lightnessRange.value);
-changeSaturationRangeColor(hueRange.value, lightnessRange.value);
-changeLightnessRangeColor(hueRange.value, saturationRange.value);
-changeColorBoxColor(hueRange.value, saturationRange.value, lightnessRange.value);
-changeBrushSizeBoxColor(hueRange.value, saturationRange.value, lightnessRange.value);
+changeHueRangeColor(saturationRangeEl.value, lightnessRangeEl.value);
+changeSaturationRangeColor(hueRangeEl.value, lightnessRangeEl.value);
+changeLightnessRangeColor(hueRangeEl.value, saturationRangeEl.value);
+changeColorBoxColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value);
+changeBrushSizeBoxColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value);
