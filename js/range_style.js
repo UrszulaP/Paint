@@ -1,14 +1,13 @@
 // CHANGING COLORS OF (COLOR RANGE INPUTS, COLORBOX AND BRUSHSIZEBOX) BY THE VALUES OF COLOR RANGE INPUTS
 
-// hue_css          automatically catches   <style id="hue_css"></style>
-// saturation_css   automatically catches   <style id="saturation_css"></style>
-// lightness_css    automatically catches   <style id="lightness_css"></style>
-
 const hueRangeEl = document.getElementById("hue_range"), 
     saturationRangeEl = document.getElementById("saturation_range"),
     lightnessRangeEl = document.getElementById("lightness_range"),
     colorBoxEl = document.getElementById("color_box"),
-    brushSizeBoxEl = document.getElementById("brush_size_box");
+    brushSizeBoxEl = document.getElementById("brush_size_box"),
+    hueCssEl = document.getElementById("hue_css"),
+    saturationCssEl = document.getElementById("saturation_css"),
+    lightnessCssEl = document.getElementById("lightness_css");
 
 
 hueRangeEl.addEventListener("change", () => {
@@ -39,7 +38,7 @@ function changeHueRangeColor(saturationValue, lightnessValue) {
         gradientColors += `hsl(${i}, ${saturationValue}%, ${lightnessValue}%),`;
     }
     gradientColors = gradientColors.slice(0, -1);
-    hue_css.innerHTML = `
+    hueCssEl.innerHTML = `
         #hue_range::-webkit-slider-runnable-track {
             background: -webkit-linear-gradient(left, ${gradientColors});
         }`;
@@ -51,7 +50,7 @@ function changeSaturationRangeColor(hueValue, lightnessValue) {
         gradientColors += `hsl(${hueValue}, ${i}%, ${lightnessValue}%),`;
     }
     gradientColors = gradientColors.slice(0, -1);
-    saturation_css.innerHTML = `
+    saturationCssEl.innerHTML = `
         #saturation_range::-webkit-slider-runnable-track {
             background: -webkit-linear-gradient(left, ${gradientColors});
         }`;
@@ -63,7 +62,7 @@ function changeLightnessRangeColor(hueValue, saturationValue) {
         gradientColors += `hsl(${hueValue}, ${saturationValue}%, ${i}%),`;
     }
     gradientColors = gradientColors.slice(0, -1);
-    lightness_css.innerHTML = `
+    lightnessCssEl.innerHTML = `
         #lightness_range::-webkit-slider-runnable-track {
             background: -webkit-linear-gradient(left, ${gradientColors});
         }`;

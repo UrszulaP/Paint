@@ -6,7 +6,7 @@
 const config = {
     sizeStep: 50,
     paperMinWidth: 200,
-    paperMaxWidth:  2000,
+    paperMaxWidth: 2000,
     paperMinHeight: 200,
     paperMaxHeight: 2000,
 };
@@ -108,7 +108,7 @@ function changeBrushColor(hue, saturation, lightness) {
 // BRUSH SIZE
 
 // already declared in range_style.js:
-//const brushSizeBoxEl = document.getElementById("brush_size_box");
+// const brushSizeBoxEl = document.getElementById("brush_size_box");
 brushSizeRangeEl.addEventListener("change", () => {
     changeBrushSize(brushSizeRangeEl.value);
     changeBrushSizeBoxSize(brushSizeRangeEl.value);
