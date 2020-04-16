@@ -57,7 +57,7 @@ function changePaperSize(deltaWidth, deltaHeight) {
 }
 
 function adjustPaperPosition() {
-    if (canvas.width >= (menuEl.clientWidth - config.sizeStep)) {
+    if (canvas.width >= menuEl.clientWidth) {
         canvas.parentElement.classList.remove("justify-content-center");
     }
     if (canvas.width < menuEl.clientWidth) {
