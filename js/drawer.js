@@ -27,11 +27,14 @@ document.getElementById("paper_height_plus").addEventListener("click", () => {ch
                                                                               setUpBrush()});
 
 function changePaperSize(deltaWidth, deltaHeight) {
-    if (!((canvas.width <= config.paperMinWidth && deltaWidth < 0) || (canvas.width >= config.paperMaxWidth && deltaWidth > 0))) {
-        canvas.width += deltaWidth;
+    const newWidth = canvas.width + deltaWidth,
+        newHeight = canvas.height + deltaHeight;
+                
+    if (config.paperMinWidth <= newWidth && newWidth <= config.paperMaxWidth) {
+        canvas.width = newWidth;
     }
-    if (!((canvas.height <= config.paperMinHeight && deltaHeight < 0) || (canvas.height >= config.paperMaxHeight && deltaHeight > 0))) {
-        canvas.height += deltaHeight;
+    if (config.paperMinHeight <= newHeight && newHeight <= config.paperMaxHeight) {
+        canvas.height = newHeight;
     }
     adjustPaperPosition();
 }
