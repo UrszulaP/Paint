@@ -26,23 +26,6 @@ const ctx = canvas.getContext('2d');
 
 // PAPER SIZE
 
-paperWidthMinusEl.addEventListener("click", () => {
-    changePaperSize(-config.sizeStep, 0);
-    setUpBrush()
-});
-paperWidthPlusEl.addEventListener("click", () => {
-    changePaperSize(config.sizeStep, 0);
-    setUpBrush()
-});
-paperHeightMinusEl.addEventListener("click", () => {
-    changePaperSize(0, -config.sizeStep);
-    setUpBrush()
-});
-paperHeightPlusEl.addEventListener("click", () => {
-    changePaperSize(0, config.sizeStep);
-    setUpBrush()
-});
-
 function changePaperSize(deltaWidth, deltaHeight) {
     const newWidth = canvas.width + deltaWidth,
         newHeight = canvas.height + deltaHeight;
@@ -65,17 +48,39 @@ function adjustPaperPosition() {
     }
 }
 
-window.addEventListener("resize", adjustPaperPosition);
+function setUpPaperSize() {
+    paperWidthMinusEl.addEventListener("click", () => {
+        changePaperSize(-config.sizeStep, 0);
+        setUpCanvas()
+    });
+    paperWidthPlusEl.addEventListener("click", () => {
+        changePaperSize(config.sizeStep, 0);
+        setUpCanvas()
+    });
+    paperHeightMinusEl.addEventListener("click", () => {
+        changePaperSize(0, -config.sizeStep);
+        setUpCanvas()
+    });
+    paperHeightPlusEl.addEventListener("click", () => {
+        changePaperSize(0, config.sizeStep);
+        setUpCanvas()
+    });
+    window.addEventListener("resize", adjustPaperPosition);
+}
 
 
 // CLEAR
 
-clearPaperEl.addEventListener("click", () => {setUpBrush()});
+function setUpClear() {
+    clearPaperEl.addEventListener("click", () => {setUpCanvas()});
+}
 
 
 // SAVE
 
-saveEl.addEventListener("click", save);
+function setUpSave() {
+    saveEl.addEventListener("click", save);
+}
 
 function save() {
     let image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
@@ -86,33 +91,30 @@ function save() {
 // BRUSH COLOR
 
 // already declared in range_style.js:
-// const hueRangeEl = document.getElementById("hue_range");
-//      saturationRangeEl = document.getElementById("saturation_range");
+// const hueRangeEl = document.getElementById("hue_range"),
+//      saturationRangeEl = document.getElementById("saturation_range"),
 //      lightnessRangeEl = document.getElementById("lightness_range");
-
-hueRangeEl.addEventListener("change", () => {
-    changeBrushColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value)
-});
-saturationRangeEl.addEventListener("change", () => {
-    changeBrushColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value)
-});
-lightnessRangeEl.addEventListener("change", () => {
-    changeBrushColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value)
-});
 
 function changeBrushColor(hue, saturation, lightness) {
     ctx.strokeStyle = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 }
 
+function setUpBrushColor() {
+    hueRangeEl.addEventListener("change", () => {
+        changeBrushColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value)
+    });
+    saturationRangeEl.addEventListener("change", () => {
+        changeBrushColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value)
+    });
+    lightnessRangeEl.addEventListener("change", () => {
+        changeBrushColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value)
+    });
+}
 
 // BRUSH SIZE
 
 // already declared in range_style.js:
 // const brushSizeBoxEl = document.getElementById("brush_size_box");
-brushSizeRangeEl.addEventListener("change", () => {
-    changeBrushSize(brushSizeRangeEl.value);
-    changeBrushSizeBoxSize(brushSizeRangeEl.value);
-});
 
 function changeBrushSize(size) {
     ctx.lineWidth = size;
@@ -121,6 +123,15 @@ function changeBrushSize(size) {
 function changeBrushSizeBoxSize(size) {
     brushSizeBoxEl.style.width = `${size}px`;
     brushSizeBoxEl.style.height = `${size}px`;
+}
+
+function setUpBrushSize() {
+    changeBrushSizeBoxSize(brushSizeRangeEl.value);
+    
+    brushSizeRangeEl.addEventListener("change", () => {
+        changeBrushSize(brushSizeRangeEl.value);
+        changeBrushSizeBoxSize(brushSizeRangeEl.value);
+    });
 }
 
 
@@ -143,18 +154,20 @@ function drawLine(e) {
     [lastX, lastY] = [e.offsetX, e.offsetY];
 }
 
-canvas.addEventListener('mousemove', draw);
-canvas.addEventListener('mousedown', (e) => {
-    isDrawing = true;
-    [lastX, lastY] = [e.offsetX, e.offsetY];
-});
-canvas.addEventListener('mouseup', () => isDrawing = false);
-canvas.addEventListener('mouseout', () => isDrawing = false);
+function setUpDrawing() {
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('mousedown', (e) => {
+        isDrawing = true;
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+    });
+    canvas.addEventListener('mouseup', () => isDrawing = false);
+    canvas.addEventListener('mouseout', () => isDrawing = false);
+}
 
 
 // SETUP
 
-function setUpBrush(width = canvas.width, height = canvas.height) {
+function setUpCanvas(width = canvas.width, height = canvas.height) {
     canvas.width = width;
     canvas.height = height;
     changeBrushColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value);
@@ -163,7 +176,11 @@ function setUpBrush(width = canvas.width, height = canvas.height) {
     ctx.lineCap = 'round';
 }
 
-setUpBrush((0.7 * menuEl.clientWidth), 
+setUpPaperSize();
+setUpClear();
+setUpSave();
+setUpBrushColor();
+setUpBrushSize();
+setUpDrawing();
+setUpCanvas((0.7 * menuEl.clientWidth), 
            (0.5 * menuEl.clientWidth));
-
-changeBrushSizeBoxSize(brushSizeRangeEl.value);
