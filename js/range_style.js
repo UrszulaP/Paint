@@ -58,12 +58,14 @@ function changeBrushSizeBoxColor(hueValue, saturationValue, lightnessValue) {
 // SETUP 
 
 function setUpColors() {
+    // initial colors
     changeHueRangeColor(saturationRangeEl.value, lightnessRangeEl.value);
     changeSaturationRangeColor(hueRangeEl.value, lightnessRangeEl.value);
     changeLightnessRangeColor(hueRangeEl.value, saturationRangeEl.value);
     changeColorBoxColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value);
     changeBrushSizeBoxColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value);
     
+    // addEventListeners
     hueRangeEl.addEventListener("change", () => {
         changeSaturationRangeColor(hueRangeEl.value, lightnessRangeEl.value);
         changeLightnessRangeColor(hueRangeEl.value, saturationRangeEl.value);

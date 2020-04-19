@@ -3,6 +3,7 @@
 
 // CONFIG
 
+// config values
 const config = {
     sizeStep: 50,
     paperMinWidth: 200,
@@ -11,6 +12,7 @@ const config = {
     paperMaxHeight: 2000,
 };
 
+// config html elements
 const paperWidthMinusEl = document.getElementById("paper_width_minus"),
     paperWidthPlusEl = document.getElementById("paper_width_plus"),
     paperHeightMinusEl = document.getElementById("paper_height_minus"),
@@ -20,6 +22,7 @@ const paperWidthMinusEl = document.getElementById("paper_width_minus"),
     saveEl = document.getElementById("save"),
     brushSizeRangeEl = document.getElementById("brush_size_range");
 
+// config canvas
 const canvas = document.querySelector('#paper');
 const ctx = canvas.getContext('2d');
 
@@ -78,13 +81,13 @@ function setUpClear() {
 
 // SAVE
 
-function setUpSave() {
-    saveEl.addEventListener("click", save);
-}
-
 function save() {
     let image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
     window.location.href = image;
+}
+
+function setUpSave() {
+    saveEl.addEventListener("click", save);
 }
 
 
@@ -110,6 +113,7 @@ function setUpBrushColor() {
         changeBrushColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value)
     });
 }
+
 
 // BRUSH SIZE
 
@@ -182,5 +186,5 @@ setUpSave();
 setUpBrushColor();
 setUpBrushSize();
 setUpDrawing();
-setUpCanvas((0.7 * menuEl.clientWidth), 
-           (0.5 * menuEl.clientWidth));
+setUpCanvas((0.7 * menuEl.clientWidth),
+            (0.5 * menuEl.clientWidth));
