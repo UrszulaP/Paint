@@ -1,177 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML5 Canvas</title>
-    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" 
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" 
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
-        crossorigin="anonymous"></script>
-    <script src="bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
-    <!-- Fonts, icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
-    <script defer src="fontawesome-free-5.13.0-web/js/all.js"></script>
-    <!-- Custom styles -->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/range_style.css">
-    <!-- Range inputs color style placeholders maintaned by range_style.js -->
-    <style id="hue_css"></style>
-    <style id="saturation_css"></style>
-    <style id="lightness_css"></style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ula's Paint</title>
+  <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+  <!-- Fonts, icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+  <script defer src="fontawesome-free-5.13.0-web/js/all.js"></script>
+  <!-- Custom styles -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/range_style.css">
+  <!-- Range inputs color style placeholders maintaned by range_style.js -->
+  <style id="hue_css"></style>
+  <style id="saturation_css"></style>
+  <style id="lightness_css"></style>
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row justify-content-center mb-5">
-            <div class="title position-absolute text-nowrap c_title">
-                <h1>Ula`s Magic Painting</h1>
-            </div>
-            <button class="btn btn-outline-light ml-auto" type="button" data-toggle="collapse" data-target="#menu">
-                Menu
-            </button>
-        </div>
-        
-        <div class="row mb-5">        
-            <div class="collapse show col" id="menu">
-                <div class="row p-3">
-                    <!-- COLOR -->
-                    <div class="col-sm-12 col-md-8 col-xl-6 mb-3">
-                        <div class="row">
-                            <div class="col">
-                                <h5>Color</h5>
-                            </div>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="col-2 p-1">
-                                <div id="color_box" class="w-100 h-100 m-auto"></div>
-                            </div>
-                            
-                            <div class="col-10">
-                                <form class="w-100">
-                                    <div class="row">
-                                        <div class="col-sm-2">
-                                            <label for="hue_range">Hue</label>
-                                        </div>
-                                        <div class="col-sm-10">
-                                            <input type="range" id="hue_range" min="0" max="360" value="56">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="row">
-                                        <div class="col-sm-2">
-                                            <label for="saturation_range">Saturation</label>
-                                        </div>
-                                        <div class="col-sm-10">
-                                            <input type="range" id="saturation_range" min="0" max="100" value="71">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="row">
-                                        <div class="col-sm-2">
-                                            <label for="lightness_range">Lightness</label>
-                                        </div>
-                                        <div class="col-sm-10">
-                                            <input type="range" id="lightness_range" min="0" max="100" value="57">
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- BRUSH SIZE -->
-                    <div class="col-sm-6 col-md-4 col-xl-2 mb-3">
-                        <div class="row">
-                            <div class="col">
-                                <h5>Brush size</h5>
-                            </div>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="col">
-                                <form class="w-100">
-                                        <input type="range" id="brush_size_range" min="1" max="70">
-                                </form>
-                            </div>
-                        </div>
-                        
-                        <div class="row" style="height: 70px"> <!-- fixed height of 2 rows with inputs on the left -->
-                            <div class="col align-self-center">
-                                <div id="brush_size_box" class="mx-auto"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- PAPER SIZE -->
-                    <div class="col-sm-6 col-md-3 offset-md-4 col-xl-2 offset-xl-0 mb-3">
-                        <div class="row">
-                            <div class="col text-center">
-                                <h5>Paper size</h5>
-                            </div>
-                        </div>
-                        <div class="row justify-content-around align-items-center mb-3">
-                            <button id="paper_width_minus" class="btn btn-sm btn-outline-light c_size_button">-</button>
-                                Width
-                            <button id="paper_width_plus" class="btn btn-sm btn-outline-light c_size_button">+</button>
-                        </div>
-                        <div class="row justify-content-around align-items-center">
-                            <button id="paper_height_minus" class="btn btn-sm btn-outline-light c_size_button">-</button>
-                                Height
-                            <button id="paper_height_plus" class="btn btn-sm btn-outline-light c_size_button">+</button>
-                        </div>
-                    </div>
-                    
-                    <!-- CLEAR -->
-                    <div class="col-sm-6 col-md-2 offset-md-1 col-xl-1 offset-xl-0 mb-3">
-                        <div class="row">
-                            <div class="col text-center">
-                                <h5>Clear</h5>
-                            </div>
-                        </div>
-                        
-                        <div class="row">
-                            <div id="clear_paper" class="col c_icon_button text-center">
-                                <i class="fas fa-eraser"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- SAVE -->
-                    <div class="col-sm-6 col-md-2 col-xl-1">
-                        <div class="row">
-                            <div class="col text-center">
-                                <h5>Save</h5>
-                            </div>
-                        </div>
-                        
-                        <div class="row">
-                            <div id="save" class="col c_icon_button text-center">
-                                <i class="far fa-save"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-
-
-        <div class="row justify-content-center">
-            <canvas id="paper" width="800" height="500"></canvas>
-        </div>
-
-
+  <div class="container-fluid">
+    <div class="row justify-content-center mb-5">
+      <div class="title position-absolute text-nowrap c_title">
+        <h1>Ula`s Magic Painting</h1>
+      </div>
+      <button class="btn btn-outline-light ml-auto" type="button" data-toggle="collapse" data-target="#menu">
+        Menu
+      </button>
     </div>
-    
-    <script src="js/range_style.js"></script>
-    <script src="js/drawer.js"></script>
 
+    <div class="row mb-5">
+      <div class="collapse show col" id="menu">
+        <div class="row p-3">
+          <!-- COLOR -->
+          <div class="col-sm-12 col-md-8 col-xl-6 mb-3">
+            <div class="row">
+              <div class="col">
+                <h5>Color</h5>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-2 p-1">
+                <div id="color_box" class="w-100 h-100 m-auto"></div>
+              </div>
+
+              <div class="col-10">
+                <form class="w-100">
+                  <div class="row">
+                    <div class="col-sm-2">
+                      <label for="hue_range">Hue</label>
+                    </div>
+                    <div class="col-sm-10">
+                      <input type="range" id="hue_range" min="0" max="360" value="56">
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-sm-2">
+                      <label for="saturation_range">Saturation</label>
+                    </div>
+                    <div class="col-sm-10">
+                      <input type="range" id="saturation_range" min="0" max="100" value="71">
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-sm-2">
+                      <label for="lightness_range">Lightness</label>
+                    </div>
+                    <div class="col-sm-10">
+                      <input type="range" id="lightness_range" min="0" max="100" value="57">
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- BRUSH SIZE -->
+          <div class="col-sm-6 col-md-4 col-xl-2 mb-3">
+            <div class="row">
+              <div class="col">
+                <h5>Brush size</h5>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <form class="w-100">
+                  <input type="range" id="brush_size_range" min="1" max="70">
+                </form>
+              </div>
+            </div>
+
+            <div class="row" style="height: 70px"> <!-- fixed height of 2 rows with inputs on the left -->
+              <div class="col align-self-center">
+                <div id="brush_size_box" class="mx-auto"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PAPER SIZE -->
+          <div class="col-sm-6 col-md-3 offset-md-4 col-xl-2 offset-xl-0 mb-3">
+            <div class="row">
+              <div class="col text-center">
+                <h5>Paper size</h5>
+              </div>
+            </div>
+            <div class="row justify-content-around align-items-center mb-3">
+              <button id="paper_width_minus" class="btn btn-sm btn-outline-light c_size_button">-</button>
+                Width
+              <button id="paper_width_plus" class="btn btn-sm btn-outline-light c_size_button">+</button>
+            </div>
+            <div class="row justify-content-around align-items-center">
+              <button id="paper_height_minus" class="btn btn-sm btn-outline-light c_size_button">-</button>
+                Height
+              <button id="paper_height_plus" class="btn btn-sm btn-outline-light c_size_button">+</button>
+            </div>
+          </div>
+
+          <!-- CLEAR -->
+          <div class="col-sm-6 col-md-2 offset-md-1 col-xl-1 offset-xl-0 mb-3">
+            <div class="row">
+              <div class="col text-center">
+                <h5>Clear</h5>
+              </div>
+            </div>
+
+            <div class="row">
+              <div id="clear_paper" class="col c_icon_button text-center">
+                <i class="fas fa-eraser"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- SAVE -->
+          <div class="col-sm-6 col-md-2 col-xl-1">
+            <div class="row">
+              <div class="col text-center">
+                <h5>Save</h5>
+              </div>
+            </div>
+
+            <div class="row">
+              <div id="save" class="col c_icon_button text-center">
+                <i class="far fa-save"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <canvas id="paper" width="800" height="500"></canvas>
+    </div>
+  </div>
+
+  <script src="js/range_style.js"></script>
+  <script src="js/drawer.js"></script>
 </body>
 </html>

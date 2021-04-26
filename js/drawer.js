@@ -5,22 +5,22 @@
 
 // config values
 const config = {
-    sizeStep: 50,
-    paperMinWidth: 200,
-    paperMaxWidth: 2000,
-    paperMinHeight: 200,
-    paperMaxHeight: 2000,
+  sizeStep: 50,
+  paperMinWidth: 200,
+  paperMaxWidth: 2000,
+  paperMinHeight: 200,
+  paperMaxHeight: 2000,
 };
 
 // config html elements
 const paperWidthMinusEl = document.getElementById("paper_width_minus"),
-    paperWidthPlusEl = document.getElementById("paper_width_plus"),
-    paperHeightMinusEl = document.getElementById("paper_height_minus"),
-    paperHeightPlusEl = document.getElementById("paper_height_plus"),
-    menuEl = document.getElementById("menu"),
-    clearPaperEl = document.getElementById("clear_paper"),
-    saveEl = document.getElementById("save"),
-    brushSizeRangeEl = document.getElementById("brush_size_range");
+  paperWidthPlusEl = document.getElementById("paper_width_plus"),
+  paperHeightMinusEl = document.getElementById("paper_height_minus"),
+  paperHeightPlusEl = document.getElementById("paper_height_plus"),
+  menuEl = document.getElementById("menu"),
+  clearPaperEl = document.getElementById("clear_paper"),
+  saveEl = document.getElementById("save"),
+  brushSizeRangeEl = document.getElementById("brush_size_range");
 
 // config canvas
 const canvas = document.querySelector('#paper');
@@ -30,64 +30,64 @@ const ctx = canvas.getContext('2d');
 // PAPER SIZE
 
 function changePaperSize(deltaWidth, deltaHeight) {
-    const newWidth = canvas.width + deltaWidth,
-        newHeight = canvas.height + deltaHeight;
-                
-    if (config.paperMinWidth <= newWidth && newWidth <= config.paperMaxWidth) {
-        canvas.width = newWidth;
-    }
-    if (config.paperMinHeight <= newHeight && newHeight <= config.paperMaxHeight) {
-        canvas.height = newHeight;
-    }
-    adjustPaperPosition();
+  const newWidth = canvas.width + deltaWidth,
+    newHeight = canvas.height + deltaHeight;
+
+  if (config.paperMinWidth <= newWidth && newWidth <= config.paperMaxWidth) {
+    canvas.width = newWidth;
+  }
+  if (config.paperMinHeight <= newHeight && newHeight <= config.paperMaxHeight) {
+    canvas.height = newHeight;
+  }
+  adjustPaperPosition();
 }
 
 function adjustPaperPosition() {
-    if (canvas.width >= menuEl.clientWidth) {
-        canvas.parentElement.classList.remove("justify-content-center");
-    }
-    if (canvas.width < menuEl.clientWidth) {
-        canvas.parentElement.classList.add("justify-content-center");
-    }
+  if (canvas.width >= menuEl.clientWidth) {
+    canvas.parentElement.classList.remove("justify-content-center");
+  }
+  if (canvas.width < menuEl.clientWidth) {
+    canvas.parentElement.classList.add("justify-content-center");
+  }
 }
 
 function setUpPaperSize() {
-    paperWidthMinusEl.addEventListener("click", () => {
-        changePaperSize(-config.sizeStep, 0);
-        setUpCanvas()
-    });
-    paperWidthPlusEl.addEventListener("click", () => {
-        changePaperSize(config.sizeStep, 0);
-        setUpCanvas()
-    });
-    paperHeightMinusEl.addEventListener("click", () => {
-        changePaperSize(0, -config.sizeStep);
-        setUpCanvas()
-    });
-    paperHeightPlusEl.addEventListener("click", () => {
-        changePaperSize(0, config.sizeStep);
-        setUpCanvas()
-    });
-    window.addEventListener("resize", adjustPaperPosition);
+  paperWidthMinusEl.addEventListener("click", () => {
+    changePaperSize(-config.sizeStep, 0);
+    setUpCanvas()
+  });
+  paperWidthPlusEl.addEventListener("click", () => {
+    changePaperSize(config.sizeStep, 0);
+    setUpCanvas()
+  });
+  paperHeightMinusEl.addEventListener("click", () => {
+    changePaperSize(0, -config.sizeStep);
+    setUpCanvas()
+  });
+  paperHeightPlusEl.addEventListener("click", () => {
+    changePaperSize(0, config.sizeStep);
+    setUpCanvas()
+  });
+  window.addEventListener("resize", adjustPaperPosition);
 }
 
 
 // CLEAR
 
 function setUpClear() {
-    clearPaperEl.addEventListener("click", () => {setUpCanvas()});
+  clearPaperEl.addEventListener("click", () => { setUpCanvas() });
 }
 
 
 // SAVE
 
 function save() {
-    let image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-    window.location.href = image;
+  let image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+  window.location.href = image;
 }
 
 function setUpSave() {
-    saveEl.addEventListener("click", save);
+  saveEl.addEventListener("click", save);
 }
 
 
@@ -99,19 +99,19 @@ function setUpSave() {
 //      lightnessRangeEl = document.getElementById("lightness_range");
 
 function changeBrushColor(hue, saturation, lightness) {
-    ctx.strokeStyle = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+  ctx.strokeStyle = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 }
 
 function setUpBrushColor() {
-    hueRangeEl.addEventListener("change", () => {
-        changeBrushColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value)
-    });
-    saturationRangeEl.addEventListener("change", () => {
-        changeBrushColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value)
-    });
-    lightnessRangeEl.addEventListener("change", () => {
-        changeBrushColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value)
-    });
+  hueRangeEl.addEventListener("change", () => {
+    changeBrushColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value)
+  });
+  saturationRangeEl.addEventListener("change", () => {
+    changeBrushColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value)
+  });
+  lightnessRangeEl.addEventListener("change", () => {
+    changeBrushColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value)
+  });
 }
 
 
@@ -121,21 +121,21 @@ function setUpBrushColor() {
 // const brushSizeBoxEl = document.getElementById("brush_size_box");
 
 function changeBrushSize(size) {
-    ctx.lineWidth = size;
+  ctx.lineWidth = size;
 }
 
 function changeBrushSizeBoxSize(size) {
-    brushSizeBoxEl.style.width = `${size}px`;
-    brushSizeBoxEl.style.height = `${size}px`;
+  brushSizeBoxEl.style.width = `${size}px`;
+  brushSizeBoxEl.style.height = `${size}px`;
 }
 
 function setUpBrushSize() {
+  changeBrushSizeBoxSize(brushSizeRangeEl.value);
+
+  brushSizeRangeEl.addEventListener("change", () => {
+    changeBrushSize(brushSizeRangeEl.value);
     changeBrushSizeBoxSize(brushSizeRangeEl.value);
-    
-    brushSizeRangeEl.addEventListener("change", () => {
-        changeBrushSize(brushSizeRangeEl.value);
-        changeBrushSizeBoxSize(brushSizeRangeEl.value);
-    });
+  });
 }
 
 
@@ -146,38 +146,38 @@ let lastX = 0;
 let lastY = 0;
 
 function draw(e) {
-    if (!isDrawing) return;
-    drawLine(e);
+  if (!isDrawing) return;
+  drawLine(e);
 }
 
 function drawLine(e) {
-    ctx.beginPath();
-    ctx.moveTo(lastX, lastY);
-    ctx.lineTo(e.offsetX, e.offsetY);
-    ctx.stroke();
-    [lastX, lastY] = [e.offsetX, e.offsetY];
+  ctx.beginPath();
+  ctx.moveTo(lastX, lastY);
+  ctx.lineTo(e.offsetX, e.offsetY);
+  ctx.stroke();
+  [lastX, lastY] = [e.offsetX, e.offsetY];
 }
 
 function setUpDrawing() {
-    canvas.addEventListener('mousemove', draw);
-    canvas.addEventListener('mousedown', (e) => {
-        isDrawing = true;
-        [lastX, lastY] = [e.offsetX, e.offsetY];
-    });
-    canvas.addEventListener('mouseup', () => isDrawing = false);
-    canvas.addEventListener('mouseout', () => isDrawing = false);
+  canvas.addEventListener('mousemove', draw);
+  canvas.addEventListener('mousedown', (e) => {
+    isDrawing = true;
+    [lastX, lastY] = [e.offsetX, e.offsetY];
+  });
+  canvas.addEventListener('mouseup', () => isDrawing = false);
+  canvas.addEventListener('mouseout', () => isDrawing = false);
 }
 
 
 // SETUP
 
 function setUpCanvas(width = canvas.width, height = canvas.height) {
-    canvas.width = width;
-    canvas.height = height;
-    changeBrushColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value);
-    changeBrushSize(brushSizeRangeEl.value);
-    ctx.lineJoin = 'round';
-    ctx.lineCap = 'round';
+  canvas.width = width;
+  canvas.height = height;
+  changeBrushColor(hueRangeEl.value, saturationRangeEl.value, lightnessRangeEl.value);
+  changeBrushSize(brushSizeRangeEl.value);
+  ctx.lineJoin = 'round';
+  ctx.lineCap = 'round';
 }
 
 setUpPaperSize();
@@ -187,4 +187,4 @@ setUpBrushColor();
 setUpBrushSize();
 setUpDrawing();
 setUpCanvas((0.7 * menuEl.clientWidth),
-            (0.5 * menuEl.clientWidth));
+  (0.5 * menuEl.clientWidth));

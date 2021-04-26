@@ -1,83 +1,83 @@
 body {
-    background-image: url("../img/background.jpg");
-    background-size: 100%;
-    font-family: 'Indie Flower', cursive;
-    color: white;
+  background-image: url("../img/background.jpg");
+  background-size: 100%;
+  font-family: 'Indie Flower', cursive;
+  color: white;
 }
 
 .container-fluid {
-    padding: 30px 5%;
+  padding: 30px 5%;
 }
 
 #paper {
-    background-image: url("../img/paper.jpg");
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  background-image: url("../img/paper.jpg");
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
 #menu {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
 }
 
 #color_box {
-    background-color: white; /* placeholder */
-    border: 1px solid #01010175;
-    border-radius: 10px;
+  background-color: white; /* placeholder */
+  border: 1px solid #01010175;
+  border-radius: 10px;
 }
 
 #brush_size_box {
-    background-color: white; /* placeholder */
-    border: 1px solid #01010175;
-    border-radius: 50%;
-    width: 100px; /* placeholder */
-    height: 100px; /* placeholder */
+  background-color: white; /* placeholder */
+  border: 1px solid #01010175;
+  border-radius: 50%;
+  width: 100px; /* placeholder */
+  height: 100px; /* placeholder */
 }
 
 .c_size_button {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    line-height: 20px;
-    height: 32px;
-    width: 32px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  line-height: 20px;
+  height: 32px;
+  width: 32px;
 }
 
 .c_icon_button {
-    border-radius: 10px;
-    cursor: pointer;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .c_icon_button:active {
-    background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .fa-eraser, .fa-save {
-    font-size: 64px; 
-    color: rgba(255, 255, 255, 0.9);
+  font-size: 64px; 
+  color: rgba(255, 255, 255, 0.9);
 }
 
 @media (max-width: 500px) {
-    .c_title {
-        position: static !important;
-    }
+  .c_title {
+      position: static !important;
+  }
 }
 
 
 /* SCROLLBAR */
 
 ::-webkit-scrollbar {
-    width: 15px;
+  width: 15px;
 }
 
 ::-webkit-scrollbar-track {
-    background: rgb(230, 230, 230);
+  background: rgb(230, 230, 230);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: hsl(271, 16%, 49%);
-    border-radius: 5px;
+  background: hsl(271, 16%, 49%);
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: hsl(271, 16%, 39%);
+  background: hsl(271, 16%, 39%);
 }
