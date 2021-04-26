@@ -1,7 +1,7 @@
 body {
   background-image: url("../img/background.jpg");
   background-size: 100%;
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Fraunces', serif;
   color: white;
 }
 
@@ -60,6 +60,10 @@ body {
   .c_title {
       position: static !important;
   }
+}
+
+h1 {
+  font-family: 'Fredericka the Great', cursive;
 }
 
 
