@@ -20,13 +20,13 @@ body {
   border-radius: 10px;
 }
 
-#color_box {
+#color-box {
   background-color: white; /* placeholder */
   border: 1px solid #01010175;
   border-radius: 10px;
 }
 
-#brush_size_box {
+#brush-size-box {
   background-color: white; /* placeholder */
   border: 1px solid #01010175;
   border-radius: 50%;
@@ -34,7 +34,7 @@ body {
   height: 100px; /* placeholder */
 }
 
-.c_size_button {
+.c-size-button {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   line-height: 20px;
@@ -42,12 +42,12 @@ body {
   width: 32px;
 }
 
-.c_icon_button {
+.c-icon-button {
   border-radius: 10px;
   cursor: pointer;
 }
 
-.c_icon_button:active {
+.c-icon-button:active {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
@@ -57,7 +57,7 @@ body {
 }
 
 @media (max-width: 500px) {
-  .c_title {
+  .c-title {
       position: static !important;
   }
 }

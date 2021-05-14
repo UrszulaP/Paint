@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ula's Painter</title>
+  <title>Ula's Painter & Colorpicker</title>
   <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+  
   <!-- Bootstrap -->
   <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css">
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -15,22 +16,25 @@
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
     crossorigin="anonymous"></script>
   <script src="bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+  
   <!-- Fonts, icons -->
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@100&family=Fredericka+the+Great&display=swap" rel="stylesheet">
+  
   <script defer src="fontawesome-free-5.13.0-web/js/all.js"></script>
   <!-- Custom styles -->
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="css/range_style.css">
+  
   <!-- Range inputs color style placeholders maintaned by range_style.js -->
-  <style id="hue_css"></style>
-  <style id="saturation_css"></style>
-  <style id="lightness_css"></style>
+  <style id="hue-css"></style>
+  <style id="saturation-css"></style>
+  <style id="lightness-css"></style>
 </head>
 
 <body>
   <div class="container-fluid">
     <div class="row justify-content-center mb-5">
-      <div class="title position-absolute text-nowrap c_title">
+      <div class="title position-absolute text-nowrap c-title">
         <h1>Ula's Painter & Colorpicker</h1>
       </div>
       <button class="btn btn-outline-light ml-auto" type="button" data-toggle="collapse" data-target="#menu">
@@ -51,35 +55,35 @@
 
             <div class="row">
               <div class="col-2 p-1">
-                <div id="color_box" class="w-100 h-100 m-auto"></div>
+                <div id="color-box" class="w-100 h-100 m-auto"></div>
               </div>
 
               <div class="col-10">
                 <form class="w-100">
                   <div class="row">
                     <div class="col-sm-2">
-                      <label for="hue_range">Hue</label>
+                      <label for="hue-range">Hue</label>
                     </div>
                     <div class="col-sm-10">
-                      <input type="range" id="hue_range" min="0" max="360" value="56">
+                      <input type="range" id="hue-range" min="0" max="360" value="56">
                     </div>
                   </div>
 
                   <div class="row">
                     <div class="col-sm-2">
-                      <label for="saturation_range">Saturation</label>
+                      <label for="saturation-range">Saturation</label>
                     </div>
                     <div class="col-sm-10">
-                      <input type="range" id="saturation_range" min="0" max="100" value="71">
+                      <input type="range" id="saturation-range" min="0" max="100" value="71">
                     </div>
                   </div>
 
                   <div class="row">
                     <div class="col-sm-2">
-                      <label for="lightness_range">Lightness</label>
+                      <label for="lightness-range">Lightness</label>
                     </div>
                     <div class="col-sm-10">
-                      <input type="range" id="lightness_range" min="0" max="100" value="57">
+                      <input type="range" id="lightness-range" min="0" max="100" value="57">
                     </div>
                   </div>
                 </form>
@@ -98,14 +102,14 @@
             <div class="row">
               <div class="col">
                 <form class="w-100">
-                  <input type="range" id="brush_size_range" min="1" max="70">
+                  <input type="range" id="brush-size-range" min="1" max="70">
                 </form>
               </div>
             </div>
 
             <div class="row" style="height: 70px"> <!-- fixed height of 2 rows with inputs on the left -->
               <div class="col align-self-center">
-                <div id="brush_size_box" class="mx-auto"></div>
+                <div id="brush-size-box" class="mx-auto"></div>
               </div>
             </div>
           </div>
@@ -118,14 +122,14 @@
               </div>
             </div>
             <div class="row justify-content-around align-items-center mb-3">
-              <button id="paper_width_minus" class="btn btn-sm btn-outline-light c_size_button">-</button>
+              <button id="paper-width-minus" class="btn btn-sm btn-outline-light c-size-button">-</button>
                 Width
-              <button id="paper_width_plus" class="btn btn-sm btn-outline-light c_size_button">+</button>
+              <button id="paper-width-plus" class="btn btn-sm btn-outline-light c-size-button">+</button>
             </div>
             <div class="row justify-content-around align-items-center">
-              <button id="paper_height_minus" class="btn btn-sm btn-outline-light c_size_button">-</button>
+              <button id="paper-height-minus" class="btn btn-sm btn-outline-light c-size-button">-</button>
                 Height
-              <button id="paper_height_plus" class="btn btn-sm btn-outline-light c_size_button">+</button>
+              <button id="paper-height-plus" class="btn btn-sm btn-outline-light c-size-button">+</button>
             </div>
           </div>
 
@@ -138,7 +142,7 @@
             </div>
 
             <div class="row">
-              <div id="clear_paper" class="col c_icon_button text-center">
+              <div id="clear-paper" class="col c-icon-button text-center">
                 <i class="fas fa-eraser"></i>
               </div>
             </div>
@@ -153,7 +157,7 @@
             </div>
 
             <div class="row">
-              <div id="save" class="col c_icon_button text-center">
+              <div id="save" class="col c-icon-button text-center">
                 <i class="far fa-save"></i>
               </div>
             </div>

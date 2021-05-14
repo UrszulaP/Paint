@@ -21,7 +21,7 @@ input[type=range]::-webkit-slider-runnable-track {
     border: 1px solid #01010175;
 }
 
-#saturation_range::-webkit-slider-runnable-track, #lightness_range::-webkit-slider-runnable-track {
+#saturation-range::-webkit-slider-runnable-track, #lightness-range::-webkit-slider-runnable-track {
     border-left-color: black;
 } /* since the general border color is half transparent, it looked bad at the gradient beginning */
   
@@ -48,7 +48,7 @@ input[type=range]::-moz-range-track {
     border: 1px solid #01010175;
   }
 
-#saturation_range::-moz-range-track, #lightness_range::-moz-range-track {
+#saturation-range::-moz-range-track, #lightness-range::-moz-range-track {
     border-left-color: black;
 } /* since the general border color is half transparent, it looked bad at the gradient beginning */
   
@@ -79,7 +79,7 @@ input[type=range]::-ms-fill-lower {
     border-radius: 26px;
 }
 
-#saturation_range::-ms-fill-lower, #lightness_range::-ms-fill-lower {
+#saturation-range::-ms-fill-lower, #lightness-range::-ms-fill-lower {
     border-left-color: black;
 } /* since the general border color is half transparent, it looked bad at the gradient beginning */
   
@@ -89,7 +89,7 @@ input[type=range]::-ms-fill-upper {
     border-radius: 26px;
 }
 
-#saturation_range::-ms-fill-upper, #lightness_range::-ms-fill-upper {
+#saturation-range::-ms-fill-upper, #lightness-range::-ms-fill-upper {
     border-left-color: black;
 } /* since the general border color is half transparent, it looked bad at the gradient beginning */
   

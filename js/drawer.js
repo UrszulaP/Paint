@@ -13,14 +13,14 @@ const config = {
 };
 
 // config html elements
-const paperWidthMinusEl = document.getElementById("paper_width_minus"),
-  paperWidthPlusEl = document.getElementById("paper_width_plus"),
-  paperHeightMinusEl = document.getElementById("paper_height_minus"),
-  paperHeightPlusEl = document.getElementById("paper_height_plus"),
+const paperWidthMinusEl = document.getElementById("paper-width-minus"),
+  paperWidthPlusEl = document.getElementById("paper-width-plus"),
+  paperHeightMinusEl = document.getElementById("paper-height-minus"),
+  paperHeightPlusEl = document.getElementById("paper-height-plus"),
   menuEl = document.getElementById("menu"),
-  clearPaperEl = document.getElementById("clear_paper"),
+  clearPaperEl = document.getElementById("clear-paper"),
   saveEl = document.getElementById("save"),
-  brushSizeRangeEl = document.getElementById("brush_size_range");
+  brushSizeRangeEl = document.getElementById("brush-size-range");
 
 // config canvas
 const canvas = document.querySelector('#paper');
@@ -94,9 +94,9 @@ function setUpSave() {
 // BRUSH COLOR
 
 // already declared in range_style.js:
-// const hueRangeEl = document.getElementById("hue_range"),
-//      saturationRangeEl = document.getElementById("saturation_range"),
-//      lightnessRangeEl = document.getElementById("lightness_range");
+// const hueRangeEl = document.getElementById("hue-range"),
+//      saturationRangeEl = document.getElementById("saturation-range"),
+//      lightnessRangeEl = document.getElementById("lightness-range");
 
 function changeBrushColor(hue, saturation, lightness) {
   ctx.strokeStyle = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
@@ -118,7 +118,7 @@ function setUpBrushColor() {
 // BRUSH SIZE
 
 // already declared in range_style.js:
-// const brushSizeBoxEl = document.getElementById("brush_size_box");
+// const brushSizeBoxEl = document.getElementById("brush-size-box");
 
 function changeBrushSize(size) {
   ctx.lineWidth = size;
@@ -186,5 +186,7 @@ setUpSave();
 setUpBrushColor();
 setUpBrushSize();
 setUpDrawing();
-setUpCanvas((0.7 * menuEl.clientWidth),
-  (0.5 * menuEl.clientWidth));
+setUpCanvas(
+  (0.7 * menuEl.clientWidth),
+  (0.5 * menuEl.clientWidth)
+);
