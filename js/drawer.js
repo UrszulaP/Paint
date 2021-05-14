@@ -13,13 +13,13 @@ const config = {
 };
 
 // config html elements
-const paperWidthMinusEl = document.getElementById("paper-width-minus"),
-  paperWidthPlusEl = document.getElementById("paper-width-plus"),
-  paperHeightMinusEl = document.getElementById("paper-height-minus"),
-  paperHeightPlusEl = document.getElementById("paper-height-plus"),
+const paperWidthMinusBtn = document.getElementById("paper-width-minus"),
+  paperWidthPlusBtn = document.getElementById("paper-width-plus"),
+  paperHeightMinusBtn = document.getElementById("paper-height-minus"),
+  paperHeightPlusBtn = document.getElementById("paper-height-plus"),
   menuEl = document.getElementById("menu"),
-  clearPaperEl = document.getElementById("clear-paper"),
-  saveEl = document.getElementById("save"),
+  clearPaperBtn = document.getElementById("clear-paper"),
+  saveBtn = document.getElementById("save"),
   brushSizeRangeEl = document.getElementById("brush-size-range");
 
 // config canvas
@@ -52,19 +52,19 @@ function adjustPaperPosition() {
 }
 
 function setUpPaperSize() {
-  paperWidthMinusEl.addEventListener("click", () => {
+  paperWidthMinusBtn.addEventListener("click", () => {
     changePaperSize(-config.sizeStep, 0);
     setUpCanvas()
   });
-  paperWidthPlusEl.addEventListener("click", () => {
+  paperWidthPlusBtn.addEventListener("click", () => {
     changePaperSize(config.sizeStep, 0);
     setUpCanvas()
   });
-  paperHeightMinusEl.addEventListener("click", () => {
+  paperHeightMinusBtn.addEventListener("click", () => {
     changePaperSize(0, -config.sizeStep);
     setUpCanvas()
   });
-  paperHeightPlusEl.addEventListener("click", () => {
+  paperHeightPlusBtn.addEventListener("click", () => {
     changePaperSize(0, config.sizeStep);
     setUpCanvas()
   });
@@ -75,7 +75,7 @@ function setUpPaperSize() {
 // CLEAR
 
 function setUpClear() {
-  clearPaperEl.addEventListener("click", () => { setUpCanvas() });
+  clearPaperBtn.addEventListener("click", () => setUpCanvas() );
 }
 
 
@@ -87,7 +87,7 @@ function save() {
 }
 
 function setUpSave() {
-  saveEl.addEventListener("click", save);
+  saveBtn.addEventListener("click", save);
 }
 
 
@@ -180,13 +180,19 @@ function setUpCanvas(width = canvas.width, height = canvas.height) {
   ctx.lineCap = 'round';
 }
 
-setUpPaperSize();
-setUpClear();
-setUpSave();
-setUpBrushColor();
-setUpBrushSize();
-setUpDrawing();
-setUpCanvas(
-  (0.7 * menuEl.clientWidth),
-  (0.5 * menuEl.clientWidth)
-);
+
+function setUp() {
+  setUpPaperSize();
+  setUpClear();
+  setUpSave();
+  setUpBrushColor();
+  setUpBrushSize();
+  setUpDrawing();
+  setUpCanvas(
+    (0.7 * menuEl.clientWidth),
+    (0.5 * menuEl.clientWidth)
+  );
+}
+
+
+setUp();
